@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0fad8f84-64a2-45d7-853e-2fbf887e29e5" name="虚拟主机" url="http://wtf.guitoubing.top">
+        <fileTransfer host="vhost116.cnameaddress.top" port="21" rootFolder="/WEB">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
