@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="GB2312" %>
+<%@ page import="javax.swing.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,34 +17,46 @@
     <link rel="stylesheet" href="css/less.css" />
 </head>
 <body>
+<jsp:useBean id="user" class="com.tanrui.bean.get_user_info"></jsp:useBean>
+<%
+    HttpSession session1 = request.getSession(false);
+    if (session1.getAttribute("username") != "" && session1.getAttribute("username") != null){
+        user.setUsername((String) session1.getAttribute("username"));
+        user.setPassword((String) session1.getAttribute("password"));
+    }else {
+        JOptionPane.showMessageDialog(null, "您尚未登录，请前往登录界面登录！");
+        response.sendRedirect("login_index.jsp");
+    }
+%>
+
 <div id="hd">
     <div class="wp">
         <div class="logo"><a href="index1"><img src="images/logo.png" alt=""></a></div>
         <div id="nav">
             <ul>
-                <li><a href="index.jsp" >首页</a></li>
-                <li><a href="about.jsp" >关于艾玛</a></li>
-                <li><a href="service.jsp" >艾玛服务</a></li>
-                <li><a href="case.jsp" >艾玛案例</a></li>
-                <li><a href="news.jsp" >艾玛动态</a></li>
-                <li><a href="contact.jsp"  style="color:#e4392a; border-bottom:3px solid #e4392a;">联系我们</a></li>
+                <li><a href="index.jsp"   style="color:#e4392a; border-bottom:3px solid #e4392a;">首页</a></li>
+                <li><a href="course_service.jsp" >课程服务</a></li>
+                <li><a href="excellent_course.jsp" >精品课程</a></li>
+                <li><a href="course_research.jsp" >课程搜索</a></li>
+                <li><a href="course_comments" >课程评价</a></li>
+                <li><a href="contact.jsp">网站留言</a></li>
+
             </ul>
+            欢迎 <a href="#"><%=session1.getAttribute("username")%></a> 来到同济大学选修百科网
         </div>
-        <div class="tel">400-000-0000</div>
     </div>
 </div>
-<!-- end #hd -->
 <div class="c"></div>
 <div id="m-hd">
     <a href="index1" class="m-logo"><img src="images/logo.png" alt=""></a>
     <div class="m-trigger"></div>
     <ul class="m-nav">
         <li><a href="index.jsp" class="v1">首页 </a></li>
-        <li><a href="about.jsp" class="v1">关于艾玛</a></li>
-        <li><a href="service.jsp" class="v1">艾玛服务</a></li>
-        <li><a href="case.jsp" class="v1">艾玛案例</a></li>
-        <li><a href="news.jsp" class="v1">艾玛动态</a></li>
-        <li><a href="contact.jsp" class="v1">联系我们</a></li>
+        <li><a href="course_service.jsp" >课程服务</a></li>
+        <li><a href="excellent_course.jsp" >精品课程</a></li>
+        <li><a href="course_research.jsp" >课程搜索</a></li>
+        <li><a href="course_comments" >课程评价</a></li>
+        <li><a href="contact.jsp">网站留言</a></li>
     </ul>
 </div>
 <div class="c"></div>	<div id="bd">
@@ -58,9 +71,10 @@
             </div>
             <div class="contact-l">
                 <ul class="ul-contact">
-                    <li class="li1">京东路33号未来城</li>
-                    <li class="li2"><a href="tel:022-87423050">022-87423050 (咨询) / <a href="tel:022-87423050">87423050 (售后)<br /><a href="tel:400-000-0000">400-000-0000 (咨询)</a><br /><a href="tel:13888888888">13888888888 (咨询)</a></li>
-                    <li class="li3"><a href="mailto:87432050@qq.com">87432050@qq.com</a></li>
+                    <li class="li1">同济大学软件学院八号楼422</li>
+                    <li class="li2"><a href="tel:189-3636-1545">189-3636-1545 联系人：谈瑞</a></li>
+                    <li class="li3"><a href="tel:173-1781-4742">173-1781-4742 联系人：李扬</a></li>
+                    <li class="li3"><a href="tel:153-1600-3362">153-1600-3362 联系人：陈超</a></li>
                 </ul>
             </div>
             <div class="contact-r">
@@ -71,88 +85,26 @@
                         <input type="text" class="inp r" name="tel" id="tel" placeholder="您的联系方式">
                     </div>
                     <textarea cols="30" rows="10" name="txt_con" id="txt"></textarea>
-                    <input type="submit" value="提交您的需求" class="sub" id="sub">
+                    <input type="submit" value="提交您的意见建议" class="sub" id="sub">
                 </form>
             </div>
         </div>
     </div>
-    <div class="map">
-        <div class="map-s">
-            <a href="javascript:void(0);" class="btn"><em></em>点击展开地图</a>
-        </div>
-        <div class="map-pop map-pop-big">
-            <a href="javascript:void(0);" class="btn-down"></a>
-            <div class="map-bg1"></div>
-            <div class="map-bg2"></div>
-            <div id="map" class="map-c" style="width:100%;height:100%;"></div>
-        </div>
-    </div>
+
 </div>
 <!-- end #bd -->
+
 <div class="c"></div>
-<!-- begin #fd -->
 <div id="fd" class="index-fd pr">
     <div class="map-bg3"></div>
     <div class="wp">
         <div class="fd-top">
             <dl>
-                <dt>关于艾玛</dt>
-                <dd>
-                    <ul class="ul-fd">
-                        <li><a href="">我们是谁</a></li>
-                        <li><a href="">我们服务的客户</a></li>
-                        <li><a href="">我们的团队</a></li>
-                        <li><a href="">客户监控系统</a></li>
-                    </ul>
-                </dd>
-            </dl>
-            <dl>
-                <dt>艾玛服务</dt>
-                <dd>
-                    <ul class="ul-fd">
-                        <li><a href="">网站建设</a></li>
-                        <li><a href="">H5响应式 交互网站</a></li>
-                        <li><a href="">移动端 & 微网站定制</a></li>
-                        <li><a href="">服务流程</a></li>
-                        <li><a href="">行业解决方案</a></li>
-                    </ul>
-                </dd>
-            </dl>
-            <dl>
-                <dt>艾玛案例</dt>
-                <dd>
-                    <ul class="ul-fd ul-fd2">
-                        <li><a href="">移动微站</a></li>
-                        <li><a href="">平台电商</a></li>
-                        <li><a href="">HTML5</a></li>
-                        <li><a href="">企业网站</a></li>
-                        <li><a href="">集团公司</a></li>
-                        <li><a href="">加工制造</a></li>
-                        <li><a href="">酒店餐饮</a></li>
-                        <li><a href="">金融投资</a></li>
-                        <li><a href="">汽车地产</a></li>
-                        <li><a href="">科技电子</a></li>
-                        <li><a href="">影视传媒</a></li>
-                        <li><a href="">生物医疗</a></li>
-                        <li><a href="">教育培训</a></li>
-                        <li><a href="">政府机关</a></li>
-                    </ul>
-                </dd>
-            </dl>
-            <dl>
-                <dt>艾玛动态</dt>
-                <dd>
-                    <ul class="ul-fd">
-                        <li><a href="#">公司动态</a></li>
-                    </ul>
-                </dd>
-            </dl>
-            <dl>
                 <dt>联系我们</dt>
                 <dd class="pr">
-                    <p><a href="" class="weixin"></a><a href="" class="sina"></a><span class="weixin-pic"><img src="images/ewm.jpg" alt=""></span></p>
-                    <p><b class="tel">400-000-0000</b></p>
-                    <h5>艾玛服务热线</h5>
+                    <p><a href="" class="weixin"></a><a href="https://weibo.com/guitoubing" class="sina"></a><span class="weixin-pic"><img src="images/ewm.jpg" alt=""></span></p>
+                    <p><b class="tel">189-3636-1545</b></p>
+                    <h5>联系电话</h5>
                 </dd>
             </dl>
         </div>
@@ -160,17 +112,10 @@
     <div class="fd-copy">
         <div class="wp">
             <p>
-                <span>网络技术（北京）有限公司 Copyright&copy; 2007-2015 </span><a href=""><span>沪ICP备030xxxx3号</span></a> <a href=""></a>
+                <span>同济大学软件学院谈瑞 同济大学软件学院陈超 同济大学汽车学院李扬 Copyright&copy; 2018 </span><a href=""></a> <a href=""></a>
             </p>
         </div>
     </div>
-</div>
-<div class="side">
-    <ul>
-        <li><a href=""><div class="sidebox"><img src="images/side_icon02.png">在线咨询</div></a></li>
-        <li><a href=""><div class="sidebox"><img src="images/side_icon01.png">在线咨询<!-- QQ:16757330 --></div></a></li>
-        <li><a href="javascript:void(0);" ><div class="sidebox"><img src="images/side_icon03.png">4000000000</div></a></li>
-    </ul>
 </div>
 <div class="side2">
     <ul>

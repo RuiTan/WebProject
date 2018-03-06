@@ -31,7 +31,6 @@ public class login_validate extends javax.servlet.http.HttpServlet {
                     }else {
                         JOptionPane.showMessageDialog(null, "密码错误，请重新输入");
                         response.sendRedirect("login_index.jsp");
-
                     }
                 }
             }

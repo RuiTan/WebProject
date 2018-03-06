@@ -1,4 +1,5 @@
-<%@ page language="java" import="java.util.*" pageEncoding="GB2312" %>
+<%@ page language="java" import="java.util.*" pageEncoding="GBK" %>
+<%@ page import="javax.swing.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,35 +16,46 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/less.css" />
 </head>
-<body>
+<jsp:useBean id="user" class="com.tanrui.bean.get_user_info"></jsp:useBean>
+<%
+    HttpSession session1 = request.getSession(false);
+    if (session1.getAttribute("username") != "" && session1.getAttribute("username") != null){
+        user.setUsername((String) session1.getAttribute("username"));
+        user.setPassword((String) session1.getAttribute("password"));
+    }else {
+        JOptionPane.showMessageDialog(null, "����δ��¼����ǰ����¼�����¼��");
+        response.sendRedirect("login_index.jsp");
+    }
+%>
+
 <div id="hd">
     <div class="wp">
         <div class="logo"><a href="index1"><img src="images/logo.png" alt=""></a></div>
         <div id="nav">
             <ul>
-                <li><a href="index.jsp" >首页</a></li>
-                <li><a href="about.jsp" >关于艾玛</a></li>
-                <li><a href="service.jsp"   style="color:#e4392a; border-bottom:3px solid #e4392a;">艾玛服务</a></li>
-                <li><a href="case.jsp" >艾玛案例</a></li>
-                <li><a href="news.jsp" >艾玛动态</a></li>
-                <li><a href="contact.jsp">联系我们</a></li>
+                <li><a href="index.jsp"   style="color:#e4392a; border-bottom:3px solid #e4392a;">��ҳ</a></li>
+                <li><a href="course_service.jsp" >�γ̷���</a></li>
+                <li><a href="excellent_course.jsp" >��Ʒ�γ�</a></li>
+                <li><a href="course_research.jsp" >�γ�����</a></li>
+                <li><a href="course_comments" >�γ�����</a></li>
+                <li><a href="contact.jsp">��վ����</a></li>
+
             </ul>
+            ��ӭ <a href="#"><%=session1.getAttribute("username")%></a> ����ͬ�ô�ѧѡ�ްٿ���
         </div>
-        <div class="tel">400-000-0000</div>
     </div>
 </div>
-<!-- end #hd -->
 <div class="c"></div>
 <div id="m-hd">
     <a href="index1" class="m-logo"><img src="images/logo.png" alt=""></a>
     <div class="m-trigger"></div>
     <ul class="m-nav">
-        <li><a href="index.jsp" class="v1">首页 </a></li>
-        <li><a href="about.jsp" class="v1">关于艾玛</a></li>
-        <li><a href="service.jsp" class="v1">艾玛服务</a></li>
-        <li><a href="case.jsp" class="v1">艾玛案例</a></li>
-        <li><a href="news.jsp" class="v1">艾玛动态</a></li>
-        <li><a href="contact.jsp" class="v1">联系我们</a></li>
+        <li><a href="index.jsp" class="v1">��ҳ </a></li>
+        <li><a href="course_service.jsp" >�γ̷���</a></li>
+        <li><a href="excellent_course.jsp" >��Ʒ�γ�</a></li>
+        <li><a href="course_research.jsp" >�γ�����</a></li>
+        <li><a href="course_comments" >�γ�����</a></li>
+        <li><a href="contact.jsp">��վ����</a></li>
     </ul>
 </div>
 <div class="c"></div>	<div id="bd">
@@ -52,18 +64,18 @@
 </div>
 <div class="wp" id="webbuit">
 <div class="tit-i">
-    <h3>网站建设</h3>
+    <h3>��վ����</h3>
     <h5>webset <span>design</span></h5>
 </div>
 <div class="about-info">
     <p>
-        我们专注于品质化高端网站构建，<span>企业品牌在网站中的整体树立，网络互动的体验，以及在手机等移动端的优质呈现。</span>
+        ����רע��Ʒ�ʻ��߶���վ������<span>��ҵƷ������վ�е��������������绥�������飬�Լ����ֻ����ƶ��˵����ʳ��֡�</span>
     </p>
     <p>
-        <span style="line-height:1.5;">根据客户实际情况1对1的为您提供咨询、研究、分析、策划等服务，从而保障网站建设项目能够顺利达到并超出您预期的商业</span><span style="line-height:1.5;">目标。</span>
+        <span style="line-height:1.5;">���ݿͻ�ʵ�����1��1��Ϊ���ṩ��ѯ���о����������߻��ȷ��񣬴Ӷ�������վ������Ŀ�ܹ�˳���ﵽ��������Ԥ�ڵ���ҵ</span><span style="line-height:1.5;">Ŀ�ꡣ</span>
     </p>
     <p>
-        我们专业提供一站式服务，从网站品牌规划、交互设计、视觉设计、动效创意，到程序开发，运营维护。
+        ����רҵ�ṩһվʽ���񣬴���վƷ�ƹ滮��������ơ��Ӿ���ơ���Ч���⣬�����򿪷�����Ӫά����
     </p>
     <p>
         <br />
@@ -85,57 +97,57 @@
         <img src="images/w8.png" alt="">
         <img src="images/w9.png" alt="">
     </div>
-    <h3>集团网站定制</h3>
+    <h3>������վ����</h3>
     <a href="javascript:;" class="btn"></a>
     <div class="webset-pop">
         <div class="pad">
-            <h2>集团网站建设<a href="javascript:void(0);" class="close"></a></h2>
+            <h2>������վ����<a href="javascript:void(0);" class="close"></a></h2>
             <div class="txt">
-                <h4 class="tit-web">建设</h4>
+                <h4 class="tit-web">����</h4>
                 <dl class="ul-txt1">
-                    <dd>集团形象展示平台</dd>
-                    <dd>舆论资讯传播平台</dd>
-                    <dd>产业合作推介平台</dd>
-                    <dd>品牌文化塑造平台</dd>
-                    <dd>人力资源服务平台</dd>
-                    <dd>投资者沟通平台</dd>
+                    <dd>��������չʾƽ̨</dd>
+                    <dd>������Ѷ����ƽ̨</dd>
+                    <dd>��ҵ�����ƽ�ƽ̨</dd>
+                    <dd>Ʒ���Ļ�����ƽ̨</dd>
+                    <dd>������Դ����ƽ̨</dd>
+                    <dd>Ͷ���߹�ͨƽ̨</dd>
                 </dl>
             </div>
             <div class="txt">
-                <h4 class="tit-web tit-web1">运维</h4>
+                <h4 class="tit-web tit-web1">��ά</h4>
                 <dl class="ul-txt1">
-                    <dd>分级权限管理</dd>
-                    <dd>审批审核机制</dd>
-                    <dd>数据分析应用</dd>
-                    <dd>程序功能拓展</dd>
-                    <dd>安全运行机制</dd>
+                    <dd>�ּ�Ȩ�޹���</dd>
+                    <dd>������˻���</dd>
+                    <dd>���ݷ���Ӧ��</dd>
+                    <dd>��������չ</dd>
+                    <dd>��ȫ���л���</dd>
                 </dl>
             </div>
             <div class="txt txt1">
-                <h4 class="tit-web tit-web2">策略</h4>
+                <h4 class="tit-web tit-web2">����</h4>
                 <ul class="ul-txt">
                     <li class="ok">
-                        <h5><a href="javascript:void(0);">网站导航</a></h5>
+                        <h5><a href="javascript:void(0);">��վ����</a></h5>
                         <div class="txt-1">
-                            <p>良好的用户导航：信息架构的梳理应该符合企业品牌宣传与产品营销的需要；不需要让客户过多思考，全面的导航设置以适应网站不同用户对信息架构的预测，为来访者提供全程的访问导航。</p>
+                            <p>���õ��û���������Ϣ�ܹ�������Ӧ�÷�����ҵƷ���������ƷӪ������Ҫ������Ҫ�ÿͻ�����˼����ȫ��ĵ�����������Ӧ��վ��ͬ�û�����Ϣ�ܹ���Ԥ�⣬Ϊ�������ṩȫ�̵ķ��ʵ�����</p>
                         </div>
                     </li>
                     <li >
-                        <h5><a href="javascript:void(0);">色彩搭配</a></h5>
+                        <h5><a href="javascript:void(0);">ɫ�ʴ���</a></h5>
                         <div class="txt-1">
-                            <p>页面传达品牌理念：追求美观、大方、简洁的设计风格；有效传递品牌价格，展现企业形象；秉承“UCD—以用户为中心的设计”原则。</p>
+                            <p>ҳ�洫��Ʒ�����׷�����ۡ��󷽡�������Ʒ����Ч����Ʒ�Ƽ۸�չ����ҵ���󣻱��С�UCD�����û�Ϊ���ĵ���ơ�ԭ��</p>
                         </div>
                     </li>
                     <li >
-                        <h5><a href="javascript:void(0);">综合分析</a></h5>
+                        <h5><a href="javascript:void(0);">�ۺϷ���</a></h5>
                         <div class="txt-1">
-                            <p>有效的传递信息：对网站页面内容有效规划，第一时间将有效信息传达给目标受众；内容展现考虑用户体验，帮助访问者加强对品牌和产品信息的认知。</p>
+                            <p>��Ч�Ĵ�����Ϣ������վҳ��������Ч�滮����һʱ�佫��Ч��Ϣ�����Ŀ�����ڣ�����չ�ֿ����û����飬���������߼�ǿ��Ʒ�ƺͲ�Ʒ��Ϣ����֪��</p>
                         </div>
                     </li>
                     <li >
-                        <h5><a href="javascript:void(0);">技术运用</a></h5>
+                        <h5><a href="javascript:void(0);">��������</a></h5>
                         <div class="txt-1">
-                            <p>提高互动性和可能性：利用Web2.0技术增强网站浏览体验，提高信息获取效率，增加更多对用户的个性化服务。</p>
+                            <p>��߻����ԺͿ����ԣ�����Web2.0������ǿ��վ������飬�����Ϣ��ȡЧ�ʣ����Ӹ�����û��ĸ��Ի�����</p>
                         </div>
                     </li>
                 </ul>
@@ -152,55 +164,55 @@
         <img src="images/q5.png" alt="">
         <img src="images/q6.png" alt="">
     </div>
-    <h3>企业网站定制</h3>
+    <h3>��ҵ��վ����</h3>
     <a href="javascript:void(0);" class="btn"></a>
     <div class="webset-pop">
-        <h2>企业网站定制<a href="javascript:void(0);" class="close"></a></h2>
+        <h2>��ҵ��վ����<a href="javascript:void(0);" class="close"></a></h2>
         <div class="txt">
-            <h4 class="tit-web">建设</h4>
+            <h4 class="tit-web">����</h4>
             <dl class="ul-txt1">
-                <dd>域名 主机 备案</dd>
-                <dd>栏目架构全面 重点突出</dd>
-                <dd>内容深度美化处理</dd>
-                <dd>用户体验友好</dd>
-                <dd>后台易操作 可拓展</dd>
+                <dd>���� ���� ����</dd>
+                <dd>��Ŀ�ܹ�ȫ�� �ص�ͻ��</dd>
+                <dd>���������������</dd>
+                <dd>�û������Ѻ�</dd>
+                <dd>��̨�ײ��� ����չ</dd>
             </dl>
         </div>
         <div class="txt">
-            <h4 class="tit-web tit-web1">运维</h4>
+            <h4 class="tit-web tit-web1">��ά</h4>
             <dl class="ul-txt1">
-                <dd>无处不在的在线沟通</dd>
-                <dd>兼容性、安全性、命名规范</dd>
-                <dd>自然排名与收录</dd>
-                <dd>快捷操作、分享概念</dd>
-                <dd>数据反馈与统计分析</dd>
+                <dd>�޴����ڵ����߹�ͨ</dd>
+                <dd>�����ԡ���ȫ�ԡ������淶</dd>
+                <dd>��Ȼ��������¼</dd>
+                <dd>��ݲ�������������</dd>
+                <dd>���ݷ�����ͳ�Ʒ���</dd>
             </dl>
         </div>
         <div class="txt txt1">
-            <h4 class="tit-web tit-web2">策略</h4>
+            <h4 class="tit-web tit-web2">����</h4>
             <ul class="ul-txt">
                 <li class="ok">
-                    <h5><a href="javascript:void(0);">技术运用</a></h5>
+                    <h5><a href="javascript:void(0);">��������</a></h5>
                     <div class="txt-1">
-                        <p>提高互动性和可能性：利用Web2.0技术增强网站浏览体验，提高信息获取效率，增加更多对用户的个性化服务。</p>
+                        <p>��߻����ԺͿ����ԣ�����Web2.0������ǿ��վ������飬�����Ϣ��ȡЧ�ʣ����Ӹ�����û��ĸ��Ի�����</p>
                     </div>
                 </li>
                 <li >
-                    <h5><a href="javascript:void(0);">综合分析</a></h5>
+                    <h5><a href="javascript:void(0);">�ۺϷ���</a></h5>
                     <div class="txt-1">
-                        <p>有效的传递信息：对网站页面内容有效规划，第一时间将有效信息传达给目标受众；内容展现考虑用户体验，帮助访问者加强对品牌和产品信息的认知。</p>
+                        <p>��Ч�Ĵ�����Ϣ������վҳ��������Ч�滮����һʱ�佫��Ч��Ϣ�����Ŀ�����ڣ�����չ�ֿ����û����飬���������߼�ǿ��Ʒ�ƺͲ�Ʒ��Ϣ����֪��</p>
                     </div>
                 </li>
                 <li >
-                    <h5><a href="javascript:void(0);">色彩搭配</a></h5>
+                    <h5><a href="javascript:void(0);">ɫ�ʴ���</a></h5>
                     <div class="txt-1">
-                        <p>页面传达品牌理念：追求美观、大方、简洁的设计风格；有效传递品牌价格，展现企业形象；秉承“UCD—以用户为中心的设计”原则。</p>
+                        <p>ҳ�洫��Ʒ�����׷�����ۡ��󷽡�������Ʒ����Ч����Ʒ�Ƽ۸�չ����ҵ���󣻱��С�UCD�����û�Ϊ���ĵ���ơ�ԭ��</p>
                     </div>
                 </li>
                 <li >
-                    <h5><a href="javascript:void(0);">网站导航</a></h5>
+                    <h5><a href="javascript:void(0);">��վ����</a></h5>
                     <div class="txt-1">
-                        <p>良好的用户导航：信息架构的梳理应该符合企业品牌宣传与产品营销的需要；不需要让客户过多思考，全面的导航设置以适应网站不同用户对信息架构的预测，为来访者提供全程的访问导航。</p>
+                        <p>���õ��û���������Ϣ�ܹ�������Ӧ�÷�����ҵƷ���������ƷӪ������Ҫ������Ҫ�ÿͻ�����˼����ȫ��ĵ�����������Ӧ��վ��ͬ�û�����Ϣ�ܹ���Ԥ�⣬Ϊ�������ṩȫ�̵ķ��ʵ�����</p>
                     </div>
                 </li>
             </ul>
@@ -225,55 +237,55 @@
         <img src="images/d14.png" alt="">
 
     </div>
-    <h3>电子商务网站定制</h3>
+    <h3>����������վ����</h3>
     <a href="javascript:void(0);" class="btn"></a>
     <div class="webset-pop">
-        <h2>电商网站定制<a href="javascript:void(0);" class="close"></a></h2>
+        <h2>������վ����<a href="javascript:void(0);" class="close"></a></h2>
         <div class="txt">
-            <h4 class="tit-web">建设</h4>
+            <h4 class="tit-web">����</h4>
             <dl class="ul-txt1">
-                <dd>产品管理系统</dd>
-                <dd>会员系统</dd>
-                <dd>购物车系统</dd>
-                <dd>在线支付系统</dd>
-                <dd>订单管理系统</dd>
+                <dd>��Ʒ����ϵͳ</dd>
+                <dd>��Աϵͳ</dd>
+                <dd>���ﳵϵͳ</dd>
+                <dd>����֧��ϵͳ</dd>
+                <dd>��������ϵͳ</dd>
             </dl>
         </div>
         <div class="txt">
-            <h4 class="tit-web tit-web1">运维</h4>
+            <h4 class="tit-web tit-web1">��ά</h4>
             <dl class="ul-txt1">
-                <dd>接口集成性</dd>
-                <dd>可扩展</dd>
-                <dd>用户体验友好</dd>
-                <dd>安全运行机制</dd>
-                <dd>维护便捷</dd>
+                <dd>�ӿڼ�����</dd>
+                <dd>����չ</dd>
+                <dd>�û������Ѻ�</dd>
+                <dd>��ȫ���л���</dd>
+                <dd>ά�����</dd>
             </dl>
         </div>
         <div class="txt txt1">
-            <h4 class="tit-web tit-web2">策略</h4>
+            <h4 class="tit-web tit-web2">����</h4>
             <ul class="ul-txt">
                 <li class="ok">
-                    <h5><a href="javascript:void(0);">网站导航</a></h5>
+                    <h5><a href="javascript:void(0);">��վ����</a></h5>
                     <div class="txt-1">
-                        <p>良好的用户导航：信息架构的梳理应该符合企业品牌宣传与产品营销的需要；不需要让客户过多思考，全面的导航设置以适应网站不同用户对信息架构的预测，为来访者提供全程的访问导航。</p>
+                        <p>���õ��û���������Ϣ�ܹ�������Ӧ�÷�����ҵƷ���������ƷӪ������Ҫ������Ҫ�ÿͻ�����˼����ȫ��ĵ�����������Ӧ��վ��ͬ�û�����Ϣ�ܹ���Ԥ�⣬Ϊ�������ṩȫ�̵ķ��ʵ�����</p>
                     </div>
                 </li>
                 <li >
-                    <h5><a href="javascript:void(0);">色彩搭配</a></h5>
+                    <h5><a href="javascript:void(0);">ɫ�ʴ���</a></h5>
                     <div class="txt-1">
-                        <p>页面传达品牌理念：追求美观、大方、简洁的设计风格；有效传递品牌价格，展现企业形象；秉承“UCD—以用户为中心的设计”原则。</p>
+                        <p>ҳ�洫��Ʒ�����׷�����ۡ��󷽡�������Ʒ����Ч����Ʒ�Ƽ۸�չ����ҵ���󣻱��С�UCD�����û�Ϊ���ĵ���ơ�ԭ��</p>
                     </div>
                 </li>
                 <li >
-                    <h5><a href="javascript:void(0);">综合分析</a></h5>
+                    <h5><a href="javascript:void(0);">�ۺϷ���</a></h5>
                     <div class="txt-1">
-                        <p>提供专业的电子商务解决方案。从集成简单购物车和结算功能的小型电子商务系统，到客户订制的大型复杂电子商务平台。</p>
+                        <p>�ṩרҵ�ĵ����������������Ӽ��ɼ򵥹��ﳵ�ͽ��㹦�ܵ�С�͵�������ϵͳ�����ͻ����ƵĴ��͸��ӵ�������ƽ̨��</p>
                     </div>
                 </li>
                 <li >
-                    <h5><a href="javascript:void(0);">技术运用</a></h5>
+                    <h5><a href="javascript:void(0);">��������</a></h5>
                     <div class="txt-1">
-                        <p>提高互动性和可能性：利用Web2.0技术增强网站浏览体验，提高信息获取效率，增加更多对用户的个性化服务。</p>
+                        <p>��߻����ԺͿ����ԣ�����Web2.0������ǿ��վ������飬�����Ϣ��ȡЧ�ʣ����Ӹ�����û��ĸ��Ի�����</p>
                     </div>
                 </li>
             </ul>
@@ -287,12 +299,12 @@
 <div class="bg-blue fix" id="weiweb">
     <div class="wp">
         <div class="tit-i">
-            <h3>H5响应式 交互网站</h3>
+            <h3>H5��Ӧʽ ������վ</h3>
             <h5><span>Responsive</span> Web design</h5>
         </div>
         <div class="about-info">
             <p>
-                以视觉形象为主，精细而恰当的交互动效，通过Flash、html5特效、视频等先进技术来实现，突出品牌及产品特点和形象，让用户获得耳目一新的视听效果，带来更愉悦的用户体验，传达更具魅力、印象更加深刻。
+                ���Ӿ�����Ϊ������ϸ��ǡ���Ľ�����Ч��ͨ��Flash��html5��Ч����Ƶ���Ƚ�������ʵ�֣�ͻ��Ʒ�Ƽ���Ʒ�ص���������û���ö�Ŀһ�µ�����Ч�������������õ��û����飬�������������ӡ�������̡�
             </p>
         </div>
         <ul class="ul-web fix">
@@ -303,14 +315,14 @@
                     <img src="images/n3.png" alt="">
                     <img src="images/n4.png" alt="">
                 </div>
-                <h3>丰富的内容设计</h3>
+                <h3>�ḻ���������</h3>
             </li>
             <li class="li2">
                 <div class="block">
                     <img src="images/n5.png" alt="">
                     <img src="images/n6.png" alt="">
                 </div>
-                <h3>html5页面代码</h3>
+                <h3>html5ҳ�����</h3>
             </li>
             <li class="li3">
                 <div class="block">
@@ -321,14 +333,14 @@
                     <img src="images/n11.png" alt="">
                     <img src="images/n12.png" alt="">
                 </div>
-                <h3>css3特效样式</h3>
+                <h3>css3��Ч��ʽ</h3>
             </li>
             <li class="li4">
                 <div class="block">
                     <img src="images/n13.png" alt="">
                     <img src="images/n14.png" alt="">
                 </div>
-                <h3>H5响应式 交换网站</h3>
+                <h3>H5��Ӧʽ ������վ</h3>
             </li>
         </ul>
         <!-- <img src="images/img18.png" alt=""> -->
@@ -336,33 +348,33 @@
 </div>
 <div class="wp" id="webmobel">
     <div class="tit-i">
-        <h3>移动端&微网站定制</h3>
+        <h3>�ƶ���&΢��վ����</h3>
         <h5>website about <span>mobilephone</span></h5>
     </div>
     <div class="about-info">
         <p>
-            在移动互联时代，我们得出“简单使用，精彩体验”的移动应用开发理念，创造属于无线时代的精彩互联。
+            ���ƶ�����ʱ�������ǵó�����ʹ�ã��������顱���ƶ�Ӧ�ÿ������������������ʱ���ľ��ʻ�����
         </p>
     </div>
     <div class="c"></div>
     <div class="web-con pr">
         <ul class="ul-tab TAB_CLICK_SLIDE" id=".tab-show">
-            <li class="hover"><a href="javascript:void(0);"><h3>手机网站</h3><span>Mobile web site</span></a></li>
-            <li ><a href="javascript:void(0);"><h3>微网站</h3><span>Micro website</span></a></li>
-            <li ><a href="javascript:void(0);"><h3>微信应用开发</h3><span>WeChat application</span></a></li>
+            <li class="hover"><a href="javascript:void(0);"><h3>�ֻ���վ</h3><span>Mobile web site</span></a></li>
+            <li ><a href="javascript:void(0);"><h3>΢��վ</h3><span>Micro website</span></a></li>
+            <li ><a href="javascript:void(0);"><h3>΢��Ӧ�ÿ���</h3><span>WeChat application</span></a></li>
         </ul>
         <div class="shou"><img src="images/shou.png" alt=""></div>
         <div class="tab-con-box">
             <div class="tab-show ">
                 <div class="tab-con">
                     <div data-animate="fadeInDown" class="txt animated">
-                        <p>手机网站适应手机浏览的网站。通过手机上的浏览器，输入网址，就可以浏览；由于手机的屏幕尺寸和CPU处理能力有限，专门为手机进行优化的网站更为方便用户浏览。</p>
+                        <p>�ֻ���վ��Ӧ�ֻ��������վ��ͨ���ֻ��ϵ��������������ַ���Ϳ�������������ֻ�����Ļ�ߴ��CPU�����������ޣ�ר��Ϊ�ֻ������Ż�����վ��Ϊ�����û������</p>
                         <ul class="ul-icon">
-                            <li><b></b><span>移动交互体验</span></li>
-                            <li><b></b><span>与PC数据同步</span></li>
-                            <li><b></b><span>全兼容手机</span></li>
-                            <li><b></b><span>量身定制</span></li>
-                            <li><b></b><span>领先设计</span></li>
+                            <li><b></b><span>�ƶ���������</span></li>
+                            <li><b></b><span>��PC����ͬ��</span></li>
+                            <li><b></b><span>ȫ�����ֻ�</span></li>
+                            <li><b></b><span>��������</span></li>
+                            <li><b></b><span>�������</span></li>
                         </ul>
                     </div>
                 </div>
@@ -370,14 +382,14 @@
             <div class="tab-show dn">
                 <div class="tab-con">
                     <div data-animate="fadeInDown" class="txt animated">
-                        <p>终端以微信为核心载体的微型站点，使其成为移动端的全新信息载体，与微信公众平台无缝对接，展示互动，应有尽用，，让移动网络推广变得更简单。</p>
+                        <p>�ն���΢��Ϊ���������΢��վ�㣬ʹ���Ϊ�ƶ��˵�ȫ����Ϣ���壬��΢�Ź���ƽ̨�޷�Խӣ�չʾ������Ӧ�о��ã������ƶ������ƹ��ø��򵥡�</p>
                         <ul class="ul-icon">
-                            <li><b></b><span>微官网</span></li>
-                            <li><b></b><span>微信营销</span></li>
-                            <li><b></b><span>微博营销</span></li>
-                            <li><b></b><span>手机展示</span></li>
-                            <li><b></b><span>互动功能</span></li>
-                            <li><b></b><span>数据同步</span></li>
+                            <li><b></b><span>΢����</span></li>
+                            <li><b></b><span>΢��Ӫ��</span></li>
+                            <li><b></b><span>΢��Ӫ��</span></li>
+                            <li><b></b><span>�ֻ�չʾ</span></li>
+                            <li><b></b><span>��������</span></li>
+                            <li><b></b><span>����ͬ��</span></li>
                         </ul>
                     </div>
                 </div>
@@ -385,14 +397,14 @@
             <div class="tab-show dn">
                 <div class="tab-con">
                     <div data-animate="fadeInDown" class="txt animated">
-                        <p>针对不同行业，提供更多智能功能的微信基础服务系统平台。同时可以根据您的需求进行高级功能定制与开发。</p>
+                        <p>��Բ�ͬ��ҵ���ṩ�������ܹ��ܵ�΢�Ż�������ϵͳƽ̨��ͬʱ���Ը�������������и߼����ܶ����뿪����</p>
                         <ul class="ul-icon">
-                            <li><b></b><span>微信支付</span></li>
-                            <li><b></b><span>微信红包</span></li>
-                            <li><b></b><span>微菜单</span></li>
-                            <li><b></b><span>微会员系统</span></li>
-                            <li><b></b><span>微广告推送</span></li>
-                            <li><b></b><span>微官网</span></li>
+                            <li><b></b><span>΢��֧��</span></li>
+                            <li><b></b><span>΢�ź��</span></li>
+                            <li><b></b><span>΢�˵�</span></li>
+                            <li><b></b><span>΢��Աϵͳ</span></li>
+                            <li><b></b><span>΢�������</span></li>
+                            <li><b></b><span>΢����</span></li>
                         </ul>
                     </div>
                 </div>
@@ -416,13 +428,13 @@
 <div class="service" id="servweb">
     <div class="wp">
         <div class="tit-i tit-i-1">
-            <h3>服务流程</h3>
+            <h3>��������</h3>
             <h5>service process</h5>
             <em></em>
         </div>
         <div class="about-info">
             <p>
-                我们专业提供一站式服务，从网站品牌规划、视觉设计、<span>交互设计、</span>动效创意，到程序开发，运营维护。<span>网博思创网络</span><span>07</span><span>年成立到现在</span><span>8</span><span>年的时间，我们拥有了丰富的建站经验和运维经验，来保证我们的工作的顺利进行。</span>
+                ����רҵ�ṩһվʽ���񣬴���վƷ�ƹ滮���Ӿ���ơ�<span>������ơ�</span>��Ч���⣬�����򿪷�����Ӫά����<span>����˼������</span><span>07</span><span>�����������</span><span>8</span><span>���ʱ�䣬����ӵ���˷ḻ�Ľ�վ�������ά���飬����֤���ǵĹ�����˳�����С�</span>
             </p>
             <p>
             <p>
@@ -434,18 +446,18 @@
                 <div class="pad">
                     <img src="images/process_bg.png" alt="">
                     <div class="txt">
-                        <span class="s1">需求</span>
-                        <span class="s2">评估</span>
-                        <span class="s3">协议</span>
-                        <span class="s4">规划</span>
-                        <span class="s5">风格沟通</span>
-                        <span class="s6">设计</span>
-                        <span class="s7">设计修改/确认</span>
-                        <span class="s8">前端制作</span>
-                        <span class="s9">开发</span>
-                        <span class="s10">程序开发</span>
-                        <span class="s11">上线</span>
-                        <span class="s12">售后服务</span>
+                        <span class="s1">����</span>
+                        <span class="s2">����</span>
+                        <span class="s3">Э��</span>
+                        <span class="s4">�滮</span>
+                        <span class="s5">���ͨ</span>
+                        <span class="s6">���</span>
+                        <span class="s7">����޸�/ȷ��</span>
+                        <span class="s8">ǰ������</span>
+                        <span class="s9">����</span>
+                        <span class="s10">���򿪷�</span>
+                        <span class="s11">����</span>
+                        <span class="s12">�ۺ����</span>
                     </div>
                     <div class="icon">
                         <em class="q1"></em>
@@ -464,90 +476,39 @@
 <div class="solution" id="solution">
     <div class="wp">
         <div class="tit-i">
-            <h3>行业解决方案</h3>
+            <h3>��ҵ�������</h3>
             <h5>industry solution</h5>
             <em></em>
         </div>
         <ul class="ul-solution">
-            <li class="li1"><a href=""><span></span><em>IT行业</em></a></li>
-            <li class="li2"><a href=""><span></span><em>制造行业</em></a></li>
-            <li class="li3"><a href=""><span></span><em>服装行业</em></a></li>
-            <li class="li4"><a href=""><span></span><em>健康行业</em></a></li>
-            <li class="li5"><a href=""><span></span><em>地产行业</em></a></li>
-            <li class="li6"><a href=""><span></span><em>美容行业</em></a></li>
-            <li class="li7"><a href=""><span></span><em>传媒行业</em></a></li>
-            <li class="li8"><a href=""><span></span><em>家电行业</em></a></li>
-            <li class="li9"><a href=""><span></span><em>汽车行业</em></a></li>
-            <li class="li10"><a href=""><span></span><em>烟酒行业</em></a></li>
-            <li class="li11"><a href=""><span></span><em>教育行业</em></a></li>
-            <li class="li12"><a href=""><span></span><em>政府机构</em></a></li>
+            <li class="li1"><a href=""><span></span><em>IT��ҵ</em></a></li>
+            <li class="li2"><a href=""><span></span><em>������ҵ</em></a></li>
+            <li class="li3"><a href=""><span></span><em>��װ��ҵ</em></a></li>
+            <li class="li4"><a href=""><span></span><em>������ҵ</em></a></li>
+            <li class="li5"><a href=""><span></span><em>�ز���ҵ</em></a></li>
+            <li class="li6"><a href=""><span></span><em>������ҵ</em></a></li>
+            <li class="li7"><a href=""><span></span><em>��ý��ҵ</em></a></li>
+            <li class="li8"><a href=""><span></span><em>�ҵ���ҵ</em></a></li>
+            <li class="li9"><a href=""><span></span><em>������ҵ</em></a></li>
+            <li class="li10"><a href=""><span></span><em>�̾���ҵ</em></a></li>
+            <li class="li11"><a href=""><span></span><em>������ҵ</em></a></li>
+            <li class="li12"><a href=""><span></span><em>��������</em></a></li>
         </ul>
     </div>
 </div>
 </div>
+
 <div class="c"></div>
 <div id="fd" class="index-fd pr">
     <div class="map-bg3"></div>
     <div class="wp">
         <div class="fd-top">
             <dl>
-                <dt>关于艾玛</dt>
-                <dd>
-                    <ul class="ul-fd">
-                        <li><a href="">我们是谁</a></li>
-                        <li><a href="">我们服务的客户</a></li>
-                        <li><a href="">我们的团队</a></li>
-                        <li><a href="">客户监控系统</a></li>
-                    </ul>
-                </dd>
-            </dl>
-            <dl>
-                <dt>艾玛服务</dt>
-                <dd>
-                    <ul class="ul-fd">
-                        <li><a href="">网站建设</a></li>
-                        <li><a href="">H5响应式 交互网站</a></li>
-                        <li><a href="">移动端 & 微网站定制</a></li>
-                        <li><a href="">服务流程</a></li>
-                        <li><a href="">行业解决方案</a></li>
-                    </ul>
-                </dd>
-            </dl>
-            <dl>
-                <dt>艾玛案例</dt>
-                <dd>
-                    <ul class="ul-fd ul-fd2">
-                        <li><a href="">移动微站</a></li>
-                        <li><a href="">平台电商</a></li>
-                        <li><a href="">HTML5</a></li>
-                        <li><a href="">企业网站</a></li>
-                        <li><a href="">集团公司</a></li>
-                        <li><a href="">加工制造</a></li>
-                        <li><a href="">酒店餐饮</a></li>
-                        <li><a href="">金融投资</a></li>
-                        <li><a href="">汽车地产</a></li>
-                        <li><a href="">科技电子</a></li>
-                        <li><a href="">影视传媒</a></li>
-                        <li><a href="">生物医疗</a></li>
-                        <li><a href="">教育培训</a></li>
-                        <li><a href="">政府机关</a></li>
-                    </ul>
-                </dd>
-            </dl>
-            <dl>
-                <dt>艾玛动态</dt>
-                <dd>
-                    <ul class="ul-fd">
-                        <li><a href="">公司动态</a></li>
-                    </ul>
-                </dd>
-            </dl>
-            <dl>
-                <dt>联系我们</dt>
+                <dt>��ϵ����</dt>
                 <dd class="pr">
-                    <p><a href="" class="weixin"></a><a href="" class="sina"></a><span class="weixin-pic"><img src="images/ewm.jpg" alt=""></span></p>
-                    <p><b class="tel">400-000-0000</b></p>
-                    <h5>艾玛服务热线</h5>
+                    <p><a href="" class="weixin"></a><a href="https://weibo.com/guitoubing" class="sina"></a><span class="weixin-pic"><img src="images/ewm.jpg" alt=""></span></p>
+                    <p><b class="tel">189-3636-1545</b></p>
+                    <h5>��ϵ�绰</h5>
                 </dd>
             </dl>
         </div>
@@ -555,17 +516,10 @@
     <div class="fd-copy">
         <div class="wp">
             <p>
-                <span>网络技术（北京）有限公司 Copyright&copy; 2007-2015 </span><a href=""><span>沪ICP备0301xxxx号</span></a> <a href=""></a>
+                <span>ͬ�ô�ѧ����ѧԺ̸�� ͬ�ô�ѧ����ѧԺ�³� ͬ�ô�ѧ����ѧԺ���� Copyright&copy; 2018 </span><a href=""></a> <a href=""></a>
             </p>
         </div>
     </div>
-</div>
-<div class="side">
-    <ul>
-        <li><a href=""><div class="sidebox"><img src="images/side_icon02.png">在线咨询</div></a></li>
-        <li><a href=""><div class="sidebox"><img src="images/side_icon01.png">在线咨询<!-- QQ:16757330 --></div></a></li>
-        <li><a href="javascript:void(0);" ><div class="sidebox"><img src="images/side_icon03.png">4000000000</div></a></li>
-    </ul>
 </div>
 <div class="side2">
     <ul>
