@@ -275,41 +275,48 @@
             <h3>×îÐÂ¿Î³ÌÆÀ¼Û</h3>
             <h5>Courses <span>comments</span></h5>
         </div>
-        <jsp:useBean id="comment1" class="com.tanrui.bean.get_comment"></jsp:useBean>
-        <jsp:useBean id="comment2" class="com.tanrui.bean.get_comment"></jsp:useBean>
-        <jsp:useBean id="comment3" class="com.tanrui.bean.get_comment"></jsp:useBean>
-        <jsp:useBean id="comment4" class="com.tanrui.bean.get_comment"></jsp:useBean>
         <%
             ArrayList<get_comment> comments = new ArrayList<>();
             Class.forName("com.mysql.jdbc.Driver");
             Connection connection = DriverManager.getConnection("jdbc:mysql://i5apdbuy.457.dnstoo.com:4017/tanrui","tanrui_f","tanrui106");
-            String sql = "SELECT * FROM `comments` ORDER BY `present_time` DESC LIMIT 4 ";
+            String sql = "SELECT * FROM `comments` ORDER BY `present_time` DESC LIMIT 4";
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             int flag = 1;
             while (resultSet.next() && flag++ <= 4){
-                get_comment comment = new get_comment();
-                comment.setComment(resultSet.getString(1));
-                comment.setLessons_num(resultSet.getString(2));
-                comment.setUsername(resultSet.getString(3));
-                comment.setDate(resultSet.getString(4));
-                comments.add(comment);
+                try {
+                    get_comment comment = new get_comment();
+                    comment.setComment(resultSet.getString(1));
+                    comment.setLessons_num(resultSet.getString(2));
+                    comment.setUsername(resultSet.getString(3));
+                    comment.setDate(resultSet.getString(4));
+                    sql = "SELECT * FROM lessons WHERE lessons_num=" + comment.getLessons_num();
+                    ResultSet resultSet1 = connection.createStatement().executeQuery(sql);
+                    while (resultSet1.next()){
+                        comment.setLessons_name(resultSet1.getString(2));
+                    }
+                    comments.add(comment);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         %>
         <ul class="ul-news-i">
             <li>
                 <div class="pad">
                     <div class="txt">
-                        <span><em><%=comments.get(0).getDate()%></em>--BY <%=comments.get(0).getUsername()%></span>
-                        <h3><a href="case-info.jsp"><%=comments.get(0).getLessons_num()%></a></h3>
-                        <p><%=comments.get(0).getComment()%></p>
+                        <span>
+                            <em><%=comments.get(0).getLessons_name()%></em>
+                            --BY <%=comments.get(0).getUsername()%></span>
+                        <h3><a href="case-info.jsp">¿ÎºÅ£º<%=comments.get(0).getLessons_num()%></a></h3>
+                        <p>ÆÀ¼Û£º<%=comments.get(0).getComment()%></p>
                         <a href="case-info.jsp?_5_313.html" class="more"></a>
                     </div>
                     <div class="hover">
                         <div class="img" style="background: url(images/14568143499060.jpg) 0 0 /100% 100% no-repeat;background: url(images/14568143499060.jpg) 0 0 no-repeat\9;"></div>
                         <div class="pad">
-                            <h3><a href="case-info.jsp"><%=comments.get(0).getLessons_num()%></a></h3>
-                            <p><%=comments.get(0).getComment()%></p>
+                            <h3><a href="case-info.jsp">¿ÎºÅ£º<%=comments.get(0).getLessons_num()%></a></h3>
+                            <p>ÆÀ¼Û£º<%=comments.get(0).getComment()%></p>
                         </div>
                     </div>
                 </div>
@@ -317,16 +324,16 @@
             <li>
                 <div class="pad">
                     <div class="txt">
-                        <span><em><%=comments.get(1).getDate()%></em>--BY <%=comments.get(1).getUsername()%></span>
-                        <h3><a href="case-info.jsp"><%=comments.get(1).getLessons_num()%></a></h3>
-                        <p><%=comments.get(1).getComment()%></p>
+                        <span><em><%=comments.get(1).getLessons_name()%></em>--BY <%=comments.get(1).getUsername()%></span>
+                        <h3><a href="case-info.jsp">¿ÎºÅ£º<%=comments.get(1).getLessons_num()%></a></h3>
+                        <p>ÆÀ¼Û£º<%=comments.get(1).getComment()%></p>
                         <a href="case-info.jsp?_5_310.html" class="more"></a>
                     </div>
                     <div class="hover">
                         <div class="img" style="background: url(images/14561176714477.png) 0 0 /100% 100% no-repeat;background: url(images/14561176714477.png) 0 0 no-repeat\9;"></div>
                         <div class="pad">
-                            <h3><a href="case-info.jsp"><%=comments.get(1).getLessons_num()%></a></h3>
-                            <p><%=comments.get(1).getComment()%></p>
+                            <h3><a href="case-info.jsp">¿ÎºÅ£º<%=comments.get(1).getLessons_num()%></a></h3>
+                            <p>ÆÀ¼Û£º<%=comments.get(1).getComment()%></p>
                         </div>
                     </div>
                 </div>
@@ -334,16 +341,16 @@
             <li>
                 <div class="pad">
                     <div class="txt">
-                        <span><em><%=comments.get(2).getDate()%></em>--BY <%=comments.get(2).getUsername()%></span>
-                        <h3><a href="case-info.jsp"><%=comments.get(2).getLessons_num()%></a></h3>
-                        <p><%=comments.get(2).getComment()%></p>
+                        <span><em><%=comments.get(2).getLessons_name()%></em>--BY <%=comments.get(2).getUsername()%></span>
+                        <h3><a href="case-info.jsp">¿ÎºÅ£º<%=comments.get(2).getLessons_num()%></a></h3>
+                        <p>ÆÀ¼Û£º<%=comments.get(2).getComment()%></p>
                         <a href="case-info.jsp" class="more"></a>
                     </div>
                     <div class="hover">
                         <div class="img" style="background: url(images/14555070718366.jpg) 0 0 /100% 100% no-repeat;background: url(images/14555070718366.jpg) 0 0 no-repeat\9;"></div>
                         <div class="pad">
-                            <h3><a href="case-info.jsp"><%=comments.get(2).getLessons_num()%></a></h3>
-                            <p><%=comments.get(2).getComment()%></p>
+                            <h3><a href="case-info.jsp">¿ÎºÅ£º<%=comments.get(2).getLessons_num()%></a></h3>
+                            <p>ÆÀ¼Û£º<%=comments.get(2).getComment()%></p>
                         </div>
                     </div>
                 </div>
@@ -351,16 +358,16 @@
             <li>
                 <div class="pad">
                     <div class="txt">
-                        <span><em><%=comments.get(3).getDate()%></em>--BY <%=comments.get(3).getUsername()%></span>
-                        <h3><a href="case-info.jsp"><%=comments.get(3).getLessons_num()%></a></h3>
-                        <p><%=comments.get(3).getComment()%></p>
+                        <span><em><%=comments.get(3).getLessons_name()%></em>--BY <%=comments.get(3).getUsername()%></span>
+                        <h3><a href="case-info.jsp">¿ÎºÅ£º<%=comments.get(3).getLessons_num()%></a></h3>
+                        <p>ÆÀ¼Û£º<%=comments.get(3).getComment()%></p>
                         <a href="case-info.jsp?_5_299.html" class="more"></a>
                     </div>
                     <div class="hover">
                         <div class="img" style="background: url(images/14537972384811.jpg) 0 0 /100% 100% no-repeat;background: url(images/14537972384811.jpg) 0 0 no-repeat\9;"></div>
                         <div class="pad">
-                            <h3><a href="case-info.jsp"><%=comments.get(3).getLessons_num()%></a></h3>
-                            <p><%=comments.get(3).getComment()%></p>
+                            <h3><a href="case-info.jsp">¿ÎºÅ£º<%=comments.get(3).getLessons_num()%></a></h3>
+                            <p>ÆÀ¼Û£º<%=comments.get(3).getComment()%></p>
                         </div>
                     </div>
                 </div>

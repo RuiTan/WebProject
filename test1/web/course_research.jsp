@@ -34,11 +34,11 @@
         <div class="logo"><a href="index1"><img src="images/logo.png" alt=""></a></div>
         <div id="nav">
             <ul>
-                <li><a href="index.jsp"   style="color:#e4392a; border-bottom:3px solid #e4392a;">首页</a></li>
+                <li><a href="index.jsp" >首页</a></li>
                 <li><a href="course_service.jsp" >课程服务</a></li>
                 <li><a href="excellent_course.jsp" >精品课程</a></li>
-                <li><a href="course_research.jsp" >课程搜索</a></li>
-                <li><a href="course_comments" >课程评价</a></li>
+                <li><a href="course_research.jsp"   style="color:#e4392a; border-bottom:3px solid #e4392a;">课程搜索</a></li>
+                <li><a href="course_comments.jsp" >课程评价</a></li>
                 <li><a href="contact.jsp">网站留言</a></li>
 
             </ul>
@@ -51,11 +51,11 @@
     <a href="index1" class="m-logo"><img src="images/logo.png" alt=""></a>
     <div class="m-trigger"></div>
     <ul class="m-nav">
-        <li><a href="index.jsp" class="v1">首页 </a></li>
+        <li><a href="index.jsp">首页 </a></li>
         <li><a href="course_service.jsp" >课程服务</a></li>
         <li><a href="excellent_course.jsp" >精品课程</a></li>
-        <li><a href="course_research.jsp" >课程搜索</a></li>
-        <li><a href="course_comments" >课程评价</a></li>
+        <li><a href="course_research.jsp"  class="v1">课程搜索</a></li>
+        <li><a href="course_comments.jsp" >课程评价</a></li>
         <li><a href="contact.jsp">网站留言</a></li>
     </ul>
 </div>

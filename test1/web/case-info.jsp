@@ -38,7 +38,7 @@
                 <li><a href="course_service.jsp" >课程服务</a></li>
                 <li><a href="excellent_course.jsp" >精品课程</a></li>
                 <li><a href="course_research.jsp" >课程搜索</a></li>
-                <li><a href="course_comments" >课程评价</a></li>
+                <li><a href="course_comments.jsp" >课程评价</a></li>
                 <li><a href="contact.jsp">网站留言</a></li>
 
             </ul>
@@ -55,16 +55,12 @@
         <li><a href="course_service.jsp" >课程服务</a></li>
         <li><a href="excellent_course.jsp" >精品课程</a></li>
         <li><a href="course_research.jsp" >课程搜索</a></li>
-        <li><a href="course_comments" >课程评价</a></li>
+        <li><a href="course_comments.jsp" >课程评价</a></li>
         <li><a href="contact.jsp">网站留言</a></li>
     </ul>
 </div>
 <div class="c"></div>	<div id="bd">
-    <!--<div class="cur">
-        <div class="wp">您的当前位置：<a href="case.php?n=4">网思案例</a> > <a href="">森林公园网站</a></div>
-    </div>-->
     <div class="case-article">
-
         <div class="case-article-bg"  style="margin-bottom:13%;background:url(images/14446394222650.jpg) 0 bottom no-repeat;">
             <div class="wp pr">
                 <a href="#" class="article-prev"></a>

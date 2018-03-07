@@ -34,12 +34,12 @@
         <div class="logo"><a href="index1"><img src="images/logo.png" alt=""></a></div>
         <div id="nav">
             <ul>
-                <li><a href="index.jsp"   style="color:#e4392a; border-bottom:3px solid #e4392a;">首页</a></li>
+                <li><a href="index.jsp" >首页</a></li>
                 <li><a href="course_service.jsp" >课程服务</a></li>
                 <li><a href="excellent_course.jsp" >精品课程</a></li>
                 <li><a href="course_research.jsp" >课程搜索</a></li>
-                <li><a href="course_comments" >课程评价</a></li>
-                <li><a href="contact.jsp">网站留言</a></li>
+                <li><a href="course_comments.jsp" >课程评价</a></li>
+                <li><a href="contact.jsp"   style="color:#e4392a; border-bottom:3px solid #e4392a;">网站留言</a></li>
 
             </ul>
             欢迎 <a href="#"><%=session1.getAttribute("username")%></a> 来到同济大学选修百科网
@@ -51,11 +51,11 @@
     <a href="index1" class="m-logo"><img src="images/logo.png" alt=""></a>
     <div class="m-trigger"></div>
     <ul class="m-nav">
-        <li><a href="index.jsp" class="v1">首页 </a></li>
+        <li><a href="index.jsp" >首页 </a></li>
         <li><a href="course_service.jsp" >课程服务</a></li>
         <li><a href="excellent_course.jsp" >精品课程</a></li>
         <li><a href="course_research.jsp" >课程搜索</a></li>
-        <li><a href="course_comments" >课程评价</a></li>
+        <li><a href="course_comments.jsp" class="v1"    >课程评价</a></li>
         <li><a href="contact.jsp">网站留言</a></li>
     </ul>
 </div>
@@ -72,9 +72,10 @@
             <div class="contact-l">
                 <ul class="ul-contact">
                     <li class="li1">同济大学软件学院八号楼422</li>
-                    <li class="li2"><a href="tel:189-3636-1545">189-3636-1545 联系人：谈瑞</a></li>
-                    <li class="li3"><a href="tel:173-1781-4742">173-1781-4742 联系人：李扬</a></li>
-                    <li class="li3"><a href="tel:153-1600-3362">153-1600-3362 联系人：陈超</a></li>
+                    <li class="li2"><a href="tel:189-3636-1545">189-3636-1545   联系人：谈瑞</a></li>
+                    <li class="li3"><a href="tel:173-1781-4742">173-1781-4742   联系人：李扬</a></li>
+                    <li class="li3"><a href="tel:153-1600-3362">153-1600-3362   联系人：陈超</a></li>
+                    <li class="li3"><a href="Email:1063932362@qq.com">1063932362@qq.com</a></li>
                 </ul>
             </div>
             <div class="contact-r">

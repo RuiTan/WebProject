@@ -14,6 +14,16 @@ public class get_comment {
     String username;
     String comment;
 
+    public String getLessons_name() {
+        return lessons_name;
+    }
+
+    public void setLessons_name(String lessons_name) {
+        this.lessons_name = lessons_name;
+    }
+
+    String lessons_name;
+
     public String getLessons_num() {
         return lessons_num;
     }
