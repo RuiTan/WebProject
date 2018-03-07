@@ -289,7 +289,7 @@
             <dl>
                 <dt>联系我们</dt>
                 <dd class="pr">
-                    <p><a href="" class="weixin"></a><a href="https://weibo.com/guitoubing" class="sina"></a><span class="weixin-pic"><img src="images/ewm.jpg" alt=""></span></p>
+                    <p><a href="" class="weixin"></a><a href="https://weibo.com/guitoubing" class="sina"></a><span class="weixin-pic"><img src="images/ewm.png" alt=""></span></p>
                     <p><b class="tel">189-3636-1545</b></p>
                     <h5>联系电话</h5>
                 </dd>
@@ -306,7 +306,7 @@
 </div>
 <div class="side2">
     <ul>
-        <li><a href=""><img src="images/r_icon1.png" alt=""></a><div class="weixin"><em></em><img src="images/ewm.jpg" alt=""></div></li>
+        <li><a href=""><img src="images/r_icon1.png" alt=""></a><div class="weixin"><em></em><img src="images/ewm.png" alt=""></div></li>
         <li><a href="javascript:goTop();" class="sidetop"><img src="images/r_icon2.png"></a></li>
     </ul>
 </div>
