@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="mysql-connector-java-5.1.45-bin">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/test1/out/artifacts/test1_war_exploded/WEB-INF/lib/mysql-connector-java-5.1.45-bin.jar!/" />
+      <root url="file://$PROJECT_DIR$/test1/out/artifacts/test1_war_exploded/WEB-INF/lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/test1/out/artifacts/test1_war_exploded/WEB-INF/lib" recursive="false" />
+  </library>
+</component>
