@@ -15,16 +15,15 @@
 <body>
 
 <jsp:useBean id="user" class="com.tanrui.bean.get_user_info"></jsp:useBean>
-<%
-    HttpSession session1 = request.getSession(false);
-    if (session1.getAttribute("username") != "" && session1.getAttribute("username") != null){
-        user.setUsername((String) session1.getAttribute("username"));
-        user.setPassword((String) session1.getAttribute("password"));
-    }else {
-        JOptionPane.showMessageDialog(null, "ÄúÉÐÎ´µÇÂ¼£¬ÇëÇ°ÍùµÇÂ¼½çÃæµÇÂ¼£¡");
-        response.sendRedirect("login_index.jsp");
-    }
-%>
+    <%
+        HttpSession session1 = request.getSession(false);
+        if (session1.getAttribute("username") != "" && session1.getAttribute("username") != null){
+            user.setUsername((String) session1.getAttribute("username"));
+            user.setPassword((String) session1.getAttribute("password"));
+        }else {
+            response.sendRedirect("login_index.jsp");
+        }
+    %>
 
 <div id="hd">
     <div class="wp">

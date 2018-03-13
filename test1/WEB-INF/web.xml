@@ -22,7 +22,16 @@
         <servlet-name>s2</servlet-name>
         <url-pattern>/s2</url-pattern>
     </servlet-mapping>
-    
+    <servlet>
+        <servlet-name>search</servlet-name>
+        <servlet-class>com.tanrui.servlet.search_servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>search</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+
+
     <filter>
         <filter-name>cf1</filter-name>
         <filter-class>com.tanrui.filter.character_filter</filter-class>

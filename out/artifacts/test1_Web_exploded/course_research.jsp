@@ -15,6 +15,20 @@
     <link rel="stylesheet" href="css/cui.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/less.css" />
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <style>
+        div.search
+        {padding: 30px 0;}
+        form { position: relative; width: 300px; margin: 0 auto; }
+        input, button { border: none; outline: none; }
+        input { width: 100%; height: 42px; padding-left: 13px; }
+        button { height: 42px; width: 42px; cursor: pointer; position: absolute; }
+        .bar3 {background: #F9F0DA;}
+        .bar3 form {background: #A3D0C3;}
+        .bar3 input, .bar3 button { background: transparent; }
+        .bar3 button { top: 0; right: 0; }
+        .bar3 button:before { content: "\f002"; font-family: FontAwesome; font-size: 16px; color: #F9F0DA; }
+    </style>
 </head>
 <body>
 <jsp:useBean id="user" class="com.tanrui.bean.get_user_info"></jsp:useBean>
@@ -24,7 +38,6 @@
         user.setUsername((String) session1.getAttribute("username"));
         user.setPassword((String) session1.getAttribute("password"));
     }else {
-        JOptionPane.showMessageDialog(null, "您尚未登录，请前往登录界面登录！");
         response.sendRedirect("login_index.jsp");
     }
 %>
@@ -65,29 +78,21 @@
 </div>
 <div class="wp">
 <div class="tit-i">
-    <h3>艾玛案例</h3>
-    <h5><span>case</span> OF TUNIU</h5>
+    <h3>课程搜索</h3>
+    <h5><span>Research</span> OF COURSE</h5>
 </div>
-<div class="sub-nav">
-    <ul>
-        <li ><a href="#">全部</a></li>
-        <li><a  href="#">政府机关</a></li>
-        <li><a  href="#">教育培训</a></li>
-        <li><a  href="#">生物医疗</a></li>
-        <li><a  href="#">影视传媒</a></li>
-        <li><a  href="#">科技电子</a></li>
-        <li><a  href="#">汽车地产</a></li>
-        <li><a  href="#">金融投资</a></li>
-        <li><a  href="#">酒店餐饮</a></li>
-        <li><a  href="#">加工制造</a></li>
-        <li><a  href="#">集团公司</a></li>
-        <li><a  href="#">企业网站</a></li>
-        <li><a  href="#">HTML5</a></li>
-        <li><a  href="#">平台电商</a></li>
-        <li><a  href="#">移动微站</a></li>
-    </ul>
-</div>
-<div class="c"></div>
+
+    <div id="container">
+        <div class="search bar3">
+            <form>
+                <input type="text" placeholder="请输入您要搜索的内容..." id="search-text" name="search-text">
+                <button class="fa fa-search" type="submit" id="submit">
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="c"></div>
 <ul class="ul-case">
     <li>
         <div class="block">

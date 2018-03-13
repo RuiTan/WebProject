@@ -1,4 +1,6 @@
-﻿* {
+﻿
+
+* {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -1901,7 +1903,6 @@ a:hover{
 }
 .process em{
 	position: absolute;
-	background: url(../images/r1.png) no-repeat;
 	display: inline-block;
 	z-index: 60;
 	opacity: 0;
@@ -1913,49 +1914,6 @@ a:hover{
 	height: 61px;
 	left: 0;
 	top: 40%;
-}
-
-.process em.q2{
-	width: 57px;
-	height: 57px;
-	top: 42%;
-	left: 19%;
-	background-image: url(../images/r2.png);
-}
-.process em.q3{
-	background-image: url(../images/r3.png);
-	width: 62px;
-	height: 56px;
-	top: 68%;
-	left: 38%;
-}
-.process em.q4{
-	background-image: url(../images/r4.png);
-	width: 86px;
-	height: 86px;
-	top: 29%;
-	left: 47%;
-}
-.process em.q5{
-	background-image: url(../images/r5.png);
-	width: 63px;
-	height: 59px;
-	top: 68%;
-	left: 57%;
-}
-.process em.q6{
-	background-image: url(../images/r6.png);
-	width: 51px;
-	height: 51px;
-	left:77%;
-	top: 40%;
-}
-.process em.q7{
-	background-image: url(../images/r7.png);
-	width: 68px;
-	height: 63px;
-	left: 94%;
-	top: 18%;
 }
 
 
@@ -1985,8 +1943,7 @@ a:hover{
 	background: url(../images/icon_solution.png) no-repeat;
 	width: 102px;
 	height: 102px;
-	margin: 0 auto;
-	margin-bottom: 20px;
+	margin: 0 auto 20px;
 	position: relative;
 }
 .ul-solution li a em{
@@ -2012,7 +1969,7 @@ a:hover{
 	background-position: -1070px 0;
 }
 .ul-solution li.li7 span{
-	background-position: 0px bottom;
+	background-position: 0 bottom;
 }
 .ul-solution li.li8 span{
 	background-position: -215px bottom;
@@ -2041,12 +1998,6 @@ a:hover{
 .service-con .col-l,.service-con .col-r{
 	width: 50%;
 	float: left;
-}
-.service-con .tit-s{
-	line-height: 100px;
-	background: url(../images/disc3.png) left center no-repeat;
-	padding-left: 14px;
-	font-size: 18px;
 }
 .ul-service li{
 	float: left;
@@ -2088,7 +2039,6 @@ a:hover{
 .ul-txt li{
 }
 .ul-txt li h5{
-    background: url(../images/jia.png) 95% center no-repeat;
     font-size: 14px;
     height: 48px;
     line-height: 48px;
@@ -2107,7 +2057,6 @@ a:hover{
     display: block;
 }
 .ul-txt li.ok h5{
-    background-image: url(../images/jian.png);
     border-bottom: 0;
 }
 

@@ -26,7 +26,6 @@
         user.setUsername((String) session1.getAttribute("username"));
         user.setPassword((String) session1.getAttribute("password"));
     }else {
-        JOptionPane.showMessageDialog(null, "ÄúÉÐÎ´µÇÂ¼£¬ÇëÇ°ÍùµÇÂ¼½çÃæµÇÂ¼£¡");
         response.sendRedirect("login_index.jsp");
     }
 %>
