@@ -14,6 +14,16 @@ public class get_comment {
     String username;
     String comment;
 
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    String level;
+
     public String getLessons_name() {
         return lessons_name;
     }

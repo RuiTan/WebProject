@@ -37,7 +37,7 @@ public class register_validate extends HttpServlet {
                 response.sendRedirect("login_index.jsp");
             }
             printWriter.close();
-
+            connection.close();
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }

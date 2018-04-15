@@ -30,7 +30,54 @@
         <servlet-name>search</servlet-name>
         <url-pattern>/search</url-pattern>
     </servlet-mapping>
-
+    <servlet>
+        <servlet-name>lessons_page_1</servlet-name>
+        <servlet-class>com.tanrui.servlet.lessons_page_1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>lessons_page_1</servlet-name>
+        <url-pattern>/lp1</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>next_page</servlet-name>
+        <servlet-class>com.tanrui.servlet.next_page</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>next_page</servlet-name>
+        <url-pattern>/np</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>pre_page</servlet-name>
+        <servlet-class>com.tanrui.servlet.pre_page</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>pre_page</servlet-name>
+        <url-pattern>/pp</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>submit_comment</servlet-name>
+        <servlet-class>com.tanrui.servlet.submit_comment</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>submit_comment</servlet-name>
+        <url-pattern>/sc</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>submit_contact</servlet-name>
+        <servlet-class>com.tanrui.servlet.submit_contact</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>submit_contact</servlet-name>
+        <url-pattern>/sct</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>quit_login</servlet-name>
+        <servlet-class>com.tanrui.servlet.quit_login</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>quit_login</servlet-name>
+        <url-pattern>/ql</url-pattern>
+    </servlet-mapping>
 
     <filter>
         <filter-name>cf1</filter-name>

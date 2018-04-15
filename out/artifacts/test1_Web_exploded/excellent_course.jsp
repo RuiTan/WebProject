@@ -1,10 +1,9 @@
-<%@ page language="java" import="java.util.*" pageEncoding="GBK" %>
-<%@ page import="javax.swing.*" %>
+<%@ page pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>ç²¾å“è¯¾ç¨‹</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta content="telephone=no" name="format-detection" />
@@ -29,52 +28,53 @@
 
 <div id="hd">
     <div class="wp">
-        <div class="logo"><a href="index1"><img src="images/logo.png" alt=""></a></div>
+        <div class="logo"><a href="index.jsp"><img src="images/logo.png" alt=""></a></div>
         <div id="nav">
             <ul>
-                <li><a href="index.jsp" >Ê×Ò³</a></li>
-                <li><a href="course_service.jsp" >¿Î³Ì·þÎñ</a></li>
-                <li><a href="excellent_course.jsp"   style="color:#e4392a; border-bottom:3px solid #e4392a;">¾«Æ·¿Î³Ì</a></li>
-                <li><a href="course_research.jsp" >¿Î³ÌËÑË÷</a></li>
-                <li><a href="course_comments.jsp" >¿Î³ÌÆÀ¼Û</a></li>
-                <li><a href="contact.jsp">ÍøÕ¾ÁôÑÔ</a></li>
+                <li><a href="index.jsp" >é¦–é¡µ</a></li>
+                <li><a href="course_service.jsp" >è¯¾ç¨‹æœåŠ¡</a></li>
+                <li><a href="excellent_course.jsp"   style="color:#e4392a; border-bottom:3px solid #e4392a;">ç²¾å“è¯¾ç¨‹</a></li>
+                <li><a href="course_research.jsp?page=1" >è¯¾ç¨‹æœç´¢</a></li>
+                <li><a href="course_comments.jsp" >è¯¾ç¨‹è¯„ä»·</a></li>
+                <li><a href="contact.jsp">ç½‘ç«™ç•™è¨€</a></li>
 
             </ul>
-            »¶Ó­ <a href="#"><%=session1.getAttribute("username")%></a> À´µ½Í¬¼Ã´óÑ§Ñ¡ÐÞ°Ù¿ÆÍø
+            <div style="text-align: center; align-content: center; padding-top: 20px;">
+                æ¬¢è¿Ž<a href="#">
+                <%=session1.getAttribute("username")%>
+            </a>æ¥åˆ°åŒæµŽå¤§å­¦é€‰ä¿®è¯¾ç™¾ç§‘äº’åŠ¨å¹³å°
+                <a href="ql">
+                    <p style="text-align: end">é€€å‡ºç™»å½•</p>
+                </a>
+            </div>
         </div>
     </div>
 </div>
 <div class="c"></div>
 <div id="m-hd">
-    <a href="index1" class="m-logo"><img src="images/logo.png" alt=""></a>
+    <a href="index.jsp" class="m-logo"><img src="images/logo.png" alt=""></a>
     <div class="m-trigger"></div>
     <ul class="m-nav">
-        <li><a href="index.jsp">Ê×Ò³ </a></li>
-        <li><a href="course_service.jsp" >¿Î³Ì·þÎñ</a></li>
-        <li><a href="excellent_course.jsp"  class="v1">¾«Æ·¿Î³Ì</a></li>
-        <li><a href="course_research.jsp" >¿Î³ÌËÑË÷</a></li>
-        <li><a href="course_comments.jsp" >¿Î³ÌÆÀ¼Û</a></li>
-        <li><a href="contact.jsp">ÍøÕ¾ÁôÑÔ</a></li>
+        <li><a href="index.jsp">é¦–é¡µ </a></li>
+        <li><a href="course_service.jsp" >è¯¾ç¨‹æœåŠ¡</a></li>
+        <li><a href="excellent_course.jsp"  class="v1">ç²¾å“è¯¾ç¨‹</a></li>
+        <li><a href="course_research.jsp?page=1" >è¯¾ç¨‹æœç´¢</a></li>
+        <li><a href="course_comments.jsp" >è¯¾ç¨‹è¯„ä»·</a></li>
+        <li><a href="contact.jsp">ç½‘ç«™ç•™è¨€</a></li>
     </ul>
 </div>
 <div class="c"></div>	<div id="bd">
-<div id="ban-in" style="background-image:url(images/14415956565984.jpg)">
+<div id="ban-in" style="background-image:url(images/exc_course.jpg)">
     <div class="ban-bg"></div>
 </div>
 <div class="wp" id="webbuit">
 <div class="tit-i">
-    <h3>ÍøÕ¾½¨Éè</h3>
-    <h5>webset <span>design</span></h5>
+    <h3>ç»æµŽç®¡ç†</h3>
+    <h5>Economic <span>Management</span></h5>
 </div>
 <div class="about-info">
     <p>
-        ÎÒÃÇ×¨×¢ÓÚÆ·ÖÊ»¯¸ß¶ËÍøÕ¾¹¹½¨£¬<span>ÆóÒµÆ·ÅÆÔÚÍøÕ¾ÖÐµÄÕûÌåÊ÷Á¢£¬ÍøÂç»¥¶¯µÄÌåÑé£¬ÒÔ¼°ÔÚÊÖ»úµÈÒÆ¶¯¶ËµÄÓÅÖÊ³ÊÏÖ¡£</span>
-    </p>
-    <p>
-        <span style="line-height:1.5;">¸ù¾Ý¿Í»§Êµ¼ÊÇé¿ö1¶Ô1µÄÎªÄúÌá¹©×ÉÑ¯¡¢ÑÐ¾¿¡¢·ÖÎö¡¢²ß»®µÈ·þÎñ£¬´Ó¶ø±£ÕÏÍøÕ¾½¨ÉèÏîÄ¿ÄÜ¹»Ë³Àû´ïµ½²¢³¬³öÄúÔ¤ÆÚµÄÉÌÒµ</span><span style="line-height:1.5;">Ä¿±ê¡£</span>
-    </p>
-    <p>
-        ÎÒÃÇ×¨ÒµÌá¹©Ò»Õ¾Ê½·þÎñ£¬´ÓÍøÕ¾Æ·ÅÆ¹æ»®¡¢½»»¥Éè¼Æ¡¢ÊÓ¾õÉè¼Æ¡¢¶¯Ð§´´Òâ£¬µ½³ÌÐò¿ª·¢£¬ÔËÓªÎ¬»¤¡£
+        â€œç»æµŽç®¡ç†è€…ä¸ºå®žçŽ°é¢„å®šç›®æ ‡ï¼Œå¯¹ç¤¾ä¼šç»æµŽæ´»åŠ¨æˆ–ç”Ÿäº§ç»è¥æ´»åŠ¨æ‰€è¿›è¡Œçš„è®¡åˆ’ã€ç»„ç»‡ã€æŒ‡æŒ¥ã€åè°ƒå’Œç›‘ç£â€<span>â€”â€”äº†è§£ç»æµŽï¼ŒæŽŒæ¡ä¸–ç•Œæ½®æµã€‚</span>
     </p>
     <p>
         <br />
@@ -96,63 +96,9 @@
         <img src="images/w8.png" alt="">
         <img src="images/w9.png" alt="">
     </div>
-    <h3>¼¯ÍÅÍøÕ¾¶¨ÖÆ</h3>
-    <a href="javascript:;" class="btn"></a>
-    <div class="webset-pop">
-        <div class="pad">
-            <h2>¼¯ÍÅÍøÕ¾½¨Éè<a href="javascript:void(0);" class="close"></a></h2>
-            <div class="txt">
-                <h4 class="tit-web">½¨Éè</h4>
-                <dl class="ul-txt1">
-                    <dd>¼¯ÍÅÐÎÏóÕ¹Ê¾Æ½Ì¨</dd>
-                    <dd>ÓßÂÛ×ÊÑ¶´«²¥Æ½Ì¨</dd>
-                    <dd>²úÒµºÏ×÷ÍÆ½éÆ½Ì¨</dd>
-                    <dd>Æ·ÅÆÎÄ»¯ËÜÔìÆ½Ì¨</dd>
-                    <dd>ÈËÁ¦×ÊÔ´·þÎñÆ½Ì¨</dd>
-                    <dd>Í¶×ÊÕß¹µÍ¨Æ½Ì¨</dd>
-                </dl>
-            </div>
-            <div class="txt">
-                <h4 class="tit-web tit-web1">ÔËÎ¬</h4>
-                <dl class="ul-txt1">
-                    <dd>·Ö¼¶È¨ÏÞ¹ÜÀí</dd>
-                    <dd>ÉóÅúÉóºË»úÖÆ</dd>
-                    <dd>Êý¾Ý·ÖÎöÓ¦ÓÃ</dd>
-                    <dd>³ÌÐò¹¦ÄÜÍØÕ¹</dd>
-                    <dd>°²È«ÔËÐÐ»úÖÆ</dd>
-                </dl>
-            </div>
-            <div class="txt txt1">
-                <h4 class="tit-web tit-web2">²ßÂÔ</h4>
-                <ul class="ul-txt">
-                    <li class="ok">
-                        <h5><a href="javascript:void(0);">ÍøÕ¾µ¼º½</a></h5>
-                        <div class="txt-1">
-                            <p>Á¼ºÃµÄÓÃ»§µ¼º½£ºÐÅÏ¢¼Ü¹¹µÄÊáÀíÓ¦¸Ã·ûºÏÆóÒµÆ·ÅÆÐû´«Óë²úÆ·ÓªÏúµÄÐèÒª£»²»ÐèÒªÈÃ¿Í»§¹ý¶àË¼¿¼£¬È«ÃæµÄµ¼º½ÉèÖÃÒÔÊÊÓ¦ÍøÕ¾²»Í¬ÓÃ»§¶ÔÐÅÏ¢¼Ü¹¹µÄÔ¤²â£¬ÎªÀ´·ÃÕßÌá¹©È«³ÌµÄ·ÃÎÊµ¼º½¡£</p>
-                        </div>
-                    </li>
-                    <li >
-                        <h5><a href="javascript:void(0);">É«²Ê´îÅä</a></h5>
-                        <div class="txt-1">
-                            <p>Ò³Ãæ´«´ïÆ·ÅÆÀíÄî£º×·ÇóÃÀ¹Û¡¢´ó·½¡¢¼ò½àµÄÉè¼Æ·ç¸ñ£»ÓÐÐ§´«µÝÆ·ÅÆ¼Û¸ñ£¬Õ¹ÏÖÆóÒµÐÎÏó£»±ü³Ð¡°UCD¡ªÒÔÓÃ»§ÎªÖÐÐÄµÄÉè¼Æ¡±Ô­Ôò¡£</p>
-                        </div>
-                    </li>
-                    <li >
-                        <h5><a href="javascript:void(0);">×ÛºÏ·ÖÎö</a></h5>
-                        <div class="txt-1">
-                            <p>ÓÐÐ§µÄ´«µÝÐÅÏ¢£º¶ÔÍøÕ¾Ò³ÃæÄÚÈÝÓÐÐ§¹æ»®£¬µÚÒ»Ê±¼ä½«ÓÐÐ§ÐÅÏ¢´«´ï¸øÄ¿±êÊÜÖÚ£»ÄÚÈÝÕ¹ÏÖ¿¼ÂÇÓÃ»§ÌåÑé£¬°ïÖú·ÃÎÊÕß¼ÓÇ¿¶ÔÆ·ÅÆºÍ²úÆ·ÐÅÏ¢µÄÈÏÖª¡£</p>
-                        </div>
-                    </li>
-                    <li >
-                        <h5><a href="javascript:void(0);">¼¼ÊõÔËÓÃ</a></h5>
-                        <div class="txt-1">
-                            <p>Ìá¸ß»¥¶¯ÐÔºÍ¿ÉÄÜÐÔ£ºÀûÓÃWeb2.0¼¼ÊõÔöÇ¿ÍøÕ¾ä¯ÀÀÌåÑé£¬Ìá¸ßÐÅÏ¢»ñÈ¡Ð§ÂÊ£¬Ôö¼Ó¸ü¶à¶ÔÓÃ»§µÄ¸öÐÔ»¯·þÎñ¡£</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    <a href="case-info.jsp?lessons_num=7016501">
+        <h3>å›½é™…é‡‘èžå¯¼å¼•</h3>
+    </a>
 </li>
 <li class="li2">
     <div class="block">
@@ -163,60 +109,10 @@
         <img src="images/q5.png" alt="">
         <img src="images/q6.png" alt="">
     </div>
-    <h3>ÆóÒµÍøÕ¾¶¨ÖÆ</h3>
-    <a href="javascript:void(0);" class="btn"></a>
-    <div class="webset-pop">
-        <h2>ÆóÒµÍøÕ¾¶¨ÖÆ<a href="javascript:void(0);" class="close"></a></h2>
-        <div class="txt">
-            <h4 class="tit-web">½¨Éè</h4>
-            <dl class="ul-txt1">
-                <dd>ÓòÃû Ö÷»ú ±¸°¸</dd>
-                <dd>À¸Ä¿¼Ü¹¹È«Ãæ ÖØµãÍ»³ö</dd>
-                <dd>ÄÚÈÝÉî¶ÈÃÀ»¯´¦Àí</dd>
-                <dd>ÓÃ»§ÌåÑéÓÑºÃ</dd>
-                <dd>ºóÌ¨Ò×²Ù×÷ ¿ÉÍØÕ¹</dd>
-            </dl>
-        </div>
-        <div class="txt">
-            <h4 class="tit-web tit-web1">ÔËÎ¬</h4>
-            <dl class="ul-txt1">
-                <dd>ÎÞ´¦²»ÔÚµÄÔÚÏß¹µÍ¨</dd>
-                <dd>¼æÈÝÐÔ¡¢°²È«ÐÔ¡¢ÃüÃû¹æ·¶</dd>
-                <dd>×ÔÈ»ÅÅÃûÓëÊÕÂ¼</dd>
-                <dd>¿ì½Ý²Ù×÷¡¢·ÖÏí¸ÅÄî</dd>
-                <dd>Êý¾Ý·´À¡ÓëÍ³¼Æ·ÖÎö</dd>
-            </dl>
-        </div>
-        <div class="txt txt1">
-            <h4 class="tit-web tit-web2">²ßÂÔ</h4>
-            <ul class="ul-txt">
-                <li class="ok">
-                    <h5><a href="javascript:void(0);">¼¼ÊõÔËÓÃ</a></h5>
-                    <div class="txt-1">
-                        <p>Ìá¸ß»¥¶¯ÐÔºÍ¿ÉÄÜÐÔ£ºÀûÓÃWeb2.0¼¼ÊõÔöÇ¿ÍøÕ¾ä¯ÀÀÌåÑé£¬Ìá¸ßÐÅÏ¢»ñÈ¡Ð§ÂÊ£¬Ôö¼Ó¸ü¶à¶ÔÓÃ»§µÄ¸öÐÔ»¯·þÎñ¡£</p>
-                    </div>
-                </li>
-                <li >
-                    <h5><a href="javascript:void(0);">×ÛºÏ·ÖÎö</a></h5>
-                    <div class="txt-1">
-                        <p>ÓÐÐ§µÄ´«µÝÐÅÏ¢£º¶ÔÍøÕ¾Ò³ÃæÄÚÈÝÓÐÐ§¹æ»®£¬µÚÒ»Ê±¼ä½«ÓÐÐ§ÐÅÏ¢´«´ï¸øÄ¿±êÊÜÖÚ£»ÄÚÈÝÕ¹ÏÖ¿¼ÂÇÓÃ»§ÌåÑé£¬°ïÖú·ÃÎÊÕß¼ÓÇ¿¶ÔÆ·ÅÆºÍ²úÆ·ÐÅÏ¢µÄÈÏÖª¡£</p>
-                    </div>
-                </li>
-                <li >
-                    <h5><a href="javascript:void(0);">É«²Ê´îÅä</a></h5>
-                    <div class="txt-1">
-                        <p>Ò³Ãæ´«´ïÆ·ÅÆÀíÄî£º×·ÇóÃÀ¹Û¡¢´ó·½¡¢¼ò½àµÄÉè¼Æ·ç¸ñ£»ÓÐÐ§´«µÝÆ·ÅÆ¼Û¸ñ£¬Õ¹ÏÖÆóÒµÐÎÏó£»±ü³Ð¡°UCD¡ªÒÔÓÃ»§ÎªÖÐÐÄµÄÉè¼Æ¡±Ô­Ôò¡£</p>
-                    </div>
-                </li>
-                <li >
-                    <h5><a href="javascript:void(0);">ÍøÕ¾µ¼º½</a></h5>
-                    <div class="txt-1">
-                        <p>Á¼ºÃµÄÓÃ»§µ¼º½£ºÐÅÏ¢¼Ü¹¹µÄÊáÀíÓ¦¸Ã·ûºÏÆóÒµÆ·ÅÆÐû´«Óë²úÆ·ÓªÏúµÄÐèÒª£»²»ÐèÒªÈÃ¿Í»§¹ý¶àË¼¿¼£¬È«ÃæµÄµ¼º½ÉèÖÃÒÔÊÊÓ¦ÍøÕ¾²»Í¬ÓÃ»§¶ÔÐÅÏ¢¼Ü¹¹µÄÔ¤²â£¬ÎªÀ´·ÃÕßÌá¹©È«³ÌµÄ·ÃÎÊµ¼º½¡£</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <a href="case-info.jsp?lessons_num=3025801">
+        <h3>å·¥ç¨‹ç»æµŽä¸Žä¼ä¸šç®¡ç†</h3>
+    </a>
+
 </li>
 <li class="li3">
     <div class="block">
@@ -236,60 +132,9 @@
         <img src="images/d14.png" alt="">
 
     </div>
-    <h3>µç×ÓÉÌÎñÍøÕ¾¶¨ÖÆ</h3>
-    <a href="javascript:void(0);" class="btn"></a>
-    <div class="webset-pop">
-        <h2>µçÉÌÍøÕ¾¶¨ÖÆ<a href="javascript:void(0);" class="close"></a></h2>
-        <div class="txt">
-            <h4 class="tit-web">½¨Éè</h4>
-            <dl class="ul-txt1">
-                <dd>²úÆ·¹ÜÀíÏµÍ³</dd>
-                <dd>»áÔ±ÏµÍ³</dd>
-                <dd>¹ºÎï³µÏµÍ³</dd>
-                <dd>ÔÚÏßÖ§¸¶ÏµÍ³</dd>
-                <dd>¶©µ¥¹ÜÀíÏµÍ³</dd>
-            </dl>
-        </div>
-        <div class="txt">
-            <h4 class="tit-web tit-web1">ÔËÎ¬</h4>
-            <dl class="ul-txt1">
-                <dd>½Ó¿Ú¼¯³ÉÐÔ</dd>
-                <dd>¿ÉÀ©Õ¹</dd>
-                <dd>ÓÃ»§ÌåÑéÓÑºÃ</dd>
-                <dd>°²È«ÔËÐÐ»úÖÆ</dd>
-                <dd>Î¬»¤±ã½Ý</dd>
-            </dl>
-        </div>
-        <div class="txt txt1">
-            <h4 class="tit-web tit-web2">²ßÂÔ</h4>
-            <ul class="ul-txt">
-                <li class="ok">
-                    <h5><a href="javascript:void(0);">ÍøÕ¾µ¼º½</a></h5>
-                    <div class="txt-1">
-                        <p>Á¼ºÃµÄÓÃ»§µ¼º½£ºÐÅÏ¢¼Ü¹¹µÄÊáÀíÓ¦¸Ã·ûºÏÆóÒµÆ·ÅÆÐû´«Óë²úÆ·ÓªÏúµÄÐèÒª£»²»ÐèÒªÈÃ¿Í»§¹ý¶àË¼¿¼£¬È«ÃæµÄµ¼º½ÉèÖÃÒÔÊÊÓ¦ÍøÕ¾²»Í¬ÓÃ»§¶ÔÐÅÏ¢¼Ü¹¹µÄÔ¤²â£¬ÎªÀ´·ÃÕßÌá¹©È«³ÌµÄ·ÃÎÊµ¼º½¡£</p>
-                    </div>
-                </li>
-                <li >
-                    <h5><a href="javascript:void(0);">É«²Ê´îÅä</a></h5>
-                    <div class="txt-1">
-                        <p>Ò³Ãæ´«´ïÆ·ÅÆÀíÄî£º×·ÇóÃÀ¹Û¡¢´ó·½¡¢¼ò½àµÄÉè¼Æ·ç¸ñ£»ÓÐÐ§´«µÝÆ·ÅÆ¼Û¸ñ£¬Õ¹ÏÖÆóÒµÐÎÏó£»±ü³Ð¡°UCD¡ªÒÔÓÃ»§ÎªÖÐÐÄµÄÉè¼Æ¡±Ô­Ôò¡£</p>
-                    </div>
-                </li>
-                <li >
-                    <h5><a href="javascript:void(0);">×ÛºÏ·ÖÎö</a></h5>
-                    <div class="txt-1">
-                        <p>Ìá¹©×¨ÒµµÄµç×ÓÉÌÎñ½â¾ö·½°¸¡£´Ó¼¯³É¼òµ¥¹ºÎï³µºÍ½áËã¹¦ÄÜµÄÐ¡ÐÍµç×ÓÉÌÎñÏµÍ³£¬µ½¿Í»§¶©ÖÆµÄ´óÐÍ¸´ÔÓµç×ÓÉÌÎñÆ½Ì¨¡£</p>
-                    </div>
-                </li>
-                <li >
-                    <h5><a href="javascript:void(0);">¼¼ÊõÔËÓÃ</a></h5>
-                    <div class="txt-1">
-                        <p>Ìá¸ß»¥¶¯ÐÔºÍ¿ÉÄÜÐÔ£ºÀûÓÃWeb2.0¼¼ÊõÔöÇ¿ÍøÕ¾ä¯ÀÀÌåÑé£¬Ìá¸ßÐÅÏ¢»ñÈ¡Ð§ÂÊ£¬Ôö¼Ó¸ü¶à¶ÔÓÃ»§µÄ¸öÐÔ»¯·þÎñ¡£</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <a href="case-info.jsp?lessons_num=13010301">
+    <h3>ä¸­å›½ç¤¾ä¼šç»æµŽ</h3>
+    </a>
 </li>
 </ul>
 <div class="h50"></div>
@@ -298,12 +143,12 @@
 <div class="bg-blue fix" id="weiweb">
     <div class="wp">
         <div class="tit-i">
-            <h3>H5ÏìÓ¦Ê½ ½»»¥ÍøÕ¾</h3>
-            <h5><span>Responsive</span> Web design</h5>
+            <h3>è®¡ç®—æœºç§‘å­¦</h3>
+            <h5><span>Computer </span>Science</h5>
         </div>
         <div class="about-info">
             <p>
-                ÒÔÊÓ¾õÐÎÏóÎªÖ÷£¬¾«Ï¸¶øÇ¡µ±µÄ½»»¥¶¯Ð§£¬Í¨¹ýFlash¡¢html5ÌØÐ§¡¢ÊÓÆµµÈÏÈ½ø¼¼ÊõÀ´ÊµÏÖ£¬Í»³öÆ·ÅÆ¼°²úÆ·ÌØµãºÍÐÎÏó£¬ÈÃÓÃ»§»ñµÃ¶úÄ¿Ò»ÐÂµÄÊÓÌýÐ§¹û£¬´øÀ´¸üÓäÔÃµÄÓÃ»§ÌåÑé£¬´«´ï¸ü¾ß÷ÈÁ¦¡¢Ó¡Ïó¸ü¼ÓÉî¿Ì¡£
+                â€œç³»ç»Ÿæ€§ç ”ç©¶ä¿¡æ¯ä¸Žè®¡ç®—çš„ç†è®ºåŸºç¡€ä»¥åŠå®ƒä»¬åœ¨è®¡ç®—æœºç³»ç»Ÿä¸­å¦‚ä½•å®žçŽ°ä¸Žåº”ç”¨â€â€”â€”é¢†ç•¥ç§‘æŠ€å¸¦æ¥çš„ç¾Žï¼Œå­¦ä¹ è®¡ç®—æœºå¸¦æ¥çš„å¥‡å¦™ä½“éªŒã€‚
             </p>
         </div>
         <ul class="ul-web fix">
@@ -314,14 +159,18 @@
                     <img src="images/n3.png" alt="">
                     <img src="images/n4.png" alt="">
                 </div>
-                <h3>·á¸»µÄÄÚÈÝÉè¼Æ</h3>
+                <a href="case-info.jsp?lessons_num=10036901">
+                    <h3>æ¨¡å—åŒ–ç”µå­ç³»ç»Ÿè®¾è®¡</h3>
+                </a>
             </li>
             <li class="li2">
                 <div class="block">
                     <img src="images/n5.png" alt="">
                     <img src="images/n6.png" alt="">
                 </div>
-                <h3>html5Ò³Ãæ´úÂë</h3>
+                <a href="case-info.jsp?lessons_num=46001101">
+                    <h3>ç”µè„‘å›¾åƒåˆ›åˆ¶æŠ€è‰º</h3>
+                </a>
             </li>
             <li class="li3">
                 <div class="block">
@@ -332,48 +181,52 @@
                     <img src="images/n11.png" alt="">
                     <img src="images/n12.png" alt="">
                 </div>
-                <h3>css3ÌØÐ§ÑùÊ½</h3>
+                <a href="case-info.jsp?lessons_num=10019601">
+                <h3>ç½‘é¡µåˆ¶ä½œæ•™ç¨‹</h3>
+                </a>
             </li>
             <li class="li4">
                 <div class="block">
                     <img src="images/n13.png" alt="">
                     <img src="images/n14.png" alt="">
                 </div>
-                <h3>H5ÏìÓ¦Ê½ ½»»»ÍøÕ¾</h3>
+                <a href="case-info.jsp?lessons_num=10048701">
+                <h3>æ‰‹æœºåº”ç”¨å¼€å‘</h3>
+                </a>
             </li>
         </ul>
-        <!-- <img src="images/img18.png" alt=""> -->
     </div>
 </div>
 <div class="wp" id="webmobel">
     <div class="tit-i">
-        <h3>ÒÆ¶¯¶Ë&Î¢ÍøÕ¾¶¨ÖÆ</h3>
-        <h5>website about <span>mobilephone</span></h5>
+        <h3>è‰ºæœ¯ç±»è¯¾ç¨‹</h3>
+        <h5>Art <span>Courses</span></h5>
     </div>
     <div class="about-info">
         <p>
-            ÔÚÒÆ¶¯»¥ÁªÊ±´ú£¬ÎÒÃÇµÃ³ö¡°¼òµ¥Ê¹ÓÃ£¬¾«²ÊÌåÑé¡±µÄÒÆ¶¯Ó¦ÓÃ¿ª·¢ÀíÄî£¬´´ÔìÊôÓÚÎÞÏßÊ±´úµÄ¾«²Ê»¥Áª¡£
+            â€œç”¨å½¢è±¡æ¥åæ˜ çŽ°å®žä½†æ¯”çŽ°å®žæœ‰å…¸åž‹æ€§çš„ç¤¾ä¼šæ„è¯†å½¢æ€â€â€”â€”é™¶å†¶æƒ…æ“ï¼Œç½®èº«é«˜é›…ï¼Œäº«å—ç”Ÿæ´»ã€‚
         </p>
     </div>
     <div class="c"></div>
     <div class="web-con pr">
         <ul class="ul-tab TAB_CLICK_SLIDE" id=".tab-show">
-            <li class="hover"><a href="javascript:void(0);"><h3>ÊÖ»úÍøÕ¾</h3><span>Mobile web site</span></a></li>
-            <li ><a href="javascript:void(0);"><h3>Î¢ÍøÕ¾</h3><span>Micro website</span></a></li>
-            <li ><a href="javascript:void(0);"><h3>Î¢ÐÅÓ¦ÓÃ¿ª·¢</h3><span>WeChat application</span></a></li>
+            <li class="hover"><a href="javascript:void(0);"><h3>æ˜ŸæœŸéŸ³ä¹ä¼š</h3><span>Weekly Concert</span></a></li>
+            <li ><a href="javascript:void(0);"><h3>å½±è§†è‰ºæœ¯æ¬£èµ</h3><span>Film and television art</span></a></li>
+            <li ><a href="javascript:void(0);"><h3>æ˜Žæ¸…å¤ç“·é‰´èµ</h3><span>Appreciation of ancient Porcelain</span></a></li>
         </ul>
         <div class="shou"><img src="images/shou.png" alt=""></div>
         <div class="tab-con-box">
             <div class="tab-show ">
                 <div class="tab-con">
                     <div data-animate="fadeInDown" class="txt animated">
-                        <p>ÊÖ»úÍøÕ¾ÊÊÓ¦ÊÖ»úä¯ÀÀµÄÍøÕ¾¡£Í¨¹ýÊÖ»úÉÏµÄä¯ÀÀÆ÷£¬ÊäÈëÍøÖ·£¬¾Í¿ÉÒÔä¯ÀÀ£»ÓÉÓÚÊÖ»úµÄÆÁÄ»³ß´çºÍCPU´¦ÀíÄÜÁ¦ÓÐÏÞ£¬×¨ÃÅÎªÊÖ»ú½øÐÐÓÅ»¯µÄÍøÕ¾¸üÎª·½±ãÓÃ»§ä¯ÀÀ¡£</p>
+                        <p>æ¯å‘¨ä¸€æ¬¡çš„æ˜ŸæœŸéŸ³ä¹ä¼šï¼Œåœ¨ç¹é‡çš„å­¦ä¹ ä»»åŠ¡æœŸé—´æŠ½ç‚¹å¬ä¸€åœºç»å¦™çš„éŸ³ä¹ä¼šï¼Œæƒ³å¿…æ˜¯æžå¥½çš„äº†ã€‚</p>
                         <ul class="ul-icon">
-                            <li><b></b><span>ÒÆ¶¯½»»¥ÌåÑé</span></li>
-                            <li><b></b><span>ÓëPCÊý¾ÝÍ¬²½</span></li>
-                            <li><b></b><span>È«¼æÈÝÊÖ»ú</span></li>
-                            <li><b></b><span>Á¿Éí¶¨ÖÆ</span></li>
-                            <li><b></b><span>ÁìÏÈÉè¼Æ</span></li>
+                            <li><b></b><span>äº¤å“ä¹</span></li>
+                            <li><b></b><span>éŸ³ä¹å¤§å¸ˆ</span></li>
+                            <li><b></b><span>å¥½è¯„å¦‚æ½®</span></li>
+                            <li><b></b><span>é™¶å†¶æƒ…æ“</span></li>
+                            <li><b></b><span>ä¼‘é—²æ”¾æ¾</span></li>
+                            <li><b></b><span>ç»™åˆ†è¶…èµž</span></li>
                         </ul>
                     </div>
                 </div>
@@ -381,14 +234,13 @@
             <div class="tab-show dn">
                 <div class="tab-con">
                     <div data-animate="fadeInDown" class="txt animated">
-                        <p>ÖÕ¶ËÒÔÎ¢ÐÅÎªºËÐÄÔØÌåµÄÎ¢ÐÍÕ¾µã£¬Ê¹Æä³ÉÎªÒÆ¶¯¶ËµÄÈ«ÐÂÐÅÏ¢ÔØÌå£¬ÓëÎ¢ÐÅ¹«ÖÚÆ½Ì¨ÎÞ·ì¶Ô½Ó£¬Õ¹Ê¾»¥¶¯£¬Ó¦ÓÐ¾¡ÓÃ£¬£¬ÈÃÒÆ¶¯ÍøÂçÍÆ¹ã±äµÃ¸ü¼òµ¥¡£</p>
+                        <p>ä»Žâ€œè¿½æ±‚æ°¸æ’â€ä¸Žâ€œç¬¬ä¸ƒè‰ºæœ¯â€çš„è¯žç”Ÿã€è¯­è¨€çš„è‡ªè§‰ç”µå½±è‰ºæœ¯ç‹¬ç«‹ä¹‹é€”ã€å…ƒç”µå½±ä¸Žå·´èµžç†è®ºã€ç”µå½±è‰ºæœ¯ä¸Žæˆå‰§è‰ºæœ¯ã€ç”µå½±ä¸Žé€ åž‹è‰ºæœ¯çš„å…³ç³»å’Œç”µå½±çš„æ–‡åŒ–ç»´åº¦ã€ç”µå½±çš„ä»ªå¼æ–‡åŒ–å’Œç”µå½±çš„æ„è¯†å½¢æ€ã€ç”µå½±çš„æ°‘æ—æ–‡åŒ–æ€§ä¸Žä¸–ç•Œæ–‡åŒ–æ€§ç­‰æ–¹é¢è®²è¿°å¦‚ä½•åŽ»é‰´èµå½±è§†ä½œå“ï¼Œé¢†ç•¥ä¸åŒçš„è‰ºæœ¯äººç”Ÿã€‚</p>
                         <ul class="ul-icon">
-                            <li><b></b><span>Î¢¹ÙÍø</span></li>
-                            <li><b></b><span>Î¢ÐÅÓªÏú</span></li>
-                            <li><b></b><span>Î¢²©ÓªÏú</span></li>
-                            <li><b></b><span>ÊÖ»úÕ¹Ê¾</span></li>
-                            <li><b></b><span>»¥¶¯¹¦ÄÜ</span></li>
-                            <li><b></b><span>Êý¾ÝÍ¬²½</span></li>
+                            <li><b></b><span>ç»å…¸å½±ç‰‡</span></li>
+                            <li><b></b><span>è§‚å½±ç››å®´</span></li>
+                            <li><b></b><span>å½±è¯„äº¤æµ</span></li>
+                            <li><b></b><span>ç²¾å½©ç‰‡èŠ±</span></li>
+                            <li><b></b><span>è€å¸ˆç‰¹åˆ«æ£’</span></li>
                         </ul>
                     </div>
                 </div>
@@ -396,14 +248,14 @@
             <div class="tab-show dn">
                 <div class="tab-con">
                     <div data-animate="fadeInDown" class="txt animated">
-                        <p>Õë¶Ô²»Í¬ÐÐÒµ£¬Ìá¹©¸ü¶àÖÇÄÜ¹¦ÄÜµÄÎ¢ÐÅ»ù´¡·þÎñÏµÍ³Æ½Ì¨¡£Í¬Ê±¿ÉÒÔ¸ù¾ÝÄúµÄÐèÇó½øÐÐ¸ß¼¶¹¦ÄÜ¶¨ÖÆÓë¿ª·¢¡£</p>
+                        <p>ç“·å™¨æ˜¯å¤ä»£åŠ³åŠ¨äººæ°‘çš„ä¸€ä¸ªé‡è¦çš„åˆ›é€ ï¼Œä¸–ç•Œä¸Šè®¸å¤šæ–‡æ˜Žçš„åˆæœŸè™½ç„¶éƒ½ç”¨é™¶åœŸçƒ§åˆ¶æœ€åŽŸå§‹çš„ç”Ÿæ´»å™¨çš¿ï¼Œä½†åœ¨ä¸­å›½ï¼Œé™¶å™¨å´å‘å±•å‡åŽæˆäº†ç“·å™¨ã€‚åƒå¹´ä»¥æ¥ï¼Œé™¶ç“·ä¸€ç›´å½±å“ç€ä¸­å›½äººçš„ç”Ÿæ´»ã€‚é¢å¯¹ç³ç…æ»¡ç›®ã€è‰¯èŽ ä¸é½çš„å¤é™¶ç“·ï¼Œæ€Žæ ·ç‹¬å…·æ…§çœ¼ï¼Œåšåˆ°é›¾é‡Œçœ‹èŠ±è€Œä¸â€œæ‰“çœ¼â€ï¼Œå°±éœ€è¦å…·å¤‡æ›´å¤šçš„å¤é™¶ç“·çŸ¥è¯†ã€æ”¶è—çŸ¥è¯†ï¼Œä»¥å¢žåŠ é‰´èµé˜…åŽ†ã€‚</p>
                         <ul class="ul-icon">
-                            <li><b></b><span>Î¢ÐÅÖ§¸¶</span></li>
-                            <li><b></b><span>Î¢ÐÅºì°ü</span></li>
-                            <li><b></b><span>Î¢²Ëµ¥</span></li>
-                            <li><b></b><span>Î¢»áÔ±ÏµÍ³</span></li>
-                            <li><b></b><span>Î¢¹ã¸æÍÆËÍ</span></li>
-                            <li><b></b><span>Î¢¹ÙÍø</span></li>
+                            <li><b></b><span>ç“·å™¨åŽ†å²</span></li>
+                            <li><b></b><span>å¹´ä»£ç‰¹ç‚¹</span></li>
+                            <li><b></b><span>å·¥è‰ºæµç¨‹</span></li>
+                            <li><b></b><span>ç“·å™¨æ–‡åŒ–</span></li>
+                            <li><b></b><span>ç“·å™¨é‰´å®š</span></li>
+                            <li><b></b><span>åšç‰©é¦†æŽ¢ç§˜</span></li>
                         </ul>
                     </div>
                 </div>
@@ -427,71 +279,37 @@
 <div class="service" id="servweb">
     <div class="wp">
         <div class="tit-i tit-i-1">
-            <h3>·þÎñÁ÷³Ì</h3>
-            <h5>service process</h5>
+            <h3>ç²¾å“è¯¾ç¨‹æŽ¨è</h3>
+            <h5>Excellent courses</h5>
             <em></em>
         </div>
         <div class="about-info">
             <p>
-                ÎÒÃÇ×¨ÒµÌá¹©Ò»Õ¾Ê½·þÎñ£¬´ÓÍøÕ¾Æ·ÅÆ¹æ»®¡¢ÊÓ¾õÉè¼Æ¡¢<span>½»»¥Éè¼Æ¡¢</span>¶¯Ð§´´Òâ£¬µ½³ÌÐò¿ª·¢£¬ÔËÓªÎ¬»¤¡£<span>Íø²©Ë¼´´ÍøÂç</span><span>07</span><span>Äê³ÉÁ¢µ½ÏÖÔÚ</span><span>8</span><span>ÄêµÄÊ±¼ä£¬ÎÒÃÇÓµÓÐÁË·á¸»µÄ½¨Õ¾¾­ÑéºÍÔËÎ¬¾­Ñé£¬À´±£Ö¤ÎÒÃÇµÄ¹¤×÷µÄË³Àû½øÐÐ¡£</span>
+                ç²¾å“è¯¾ç¨‹ä»è€…è§ä»æ™ºè€…è§æ™ºï¼Œæˆ‘ä»¬éœ€è¦ä½ çš„æ„è§å»ºè®®ï¼Œè®©æ›´å¤šäººé€‰å‡ºè‡ªå·±å¿ƒä¸­çš„ç²¾å“è¯¾ç¨‹ã€‚
             </p>
-            <p>
-            <p>
-                <span></span>
-            </p>
-            </p>				</div>
-        <div class="process">
-            <div class="con">
-                <div class="pad">
-                    <img src="images/process_bg.png" alt="">
-                    <div class="txt">
-                        <span class="s1">ÐèÇó</span>
-                        <span class="s2">ÆÀ¹À</span>
-                        <span class="s3">Ð­Òé</span>
-                        <span class="s4">¹æ»®</span>
-                        <span class="s5">·ç¸ñ¹µÍ¨</span>
-                        <span class="s6">Éè¼Æ</span>
-                        <span class="s7">Éè¼ÆÐÞ¸Ä/È·ÈÏ</span>
-                        <span class="s8">Ç°¶ËÖÆ×÷</span>
-                        <span class="s9">¿ª·¢</span>
-                        <span class="s10">³ÌÐò¿ª·¢</span>
-                        <span class="s11">ÉÏÏß</span>
-                        <span class="s12">ÊÛºó·þÎñ</span>
-                    </div>
-                    <div class="icon">
-                        <em class="q1"></em>
-                        <em class="q2"></em>
-                        <em class="q3"></em>
-                        <em class="q4"></em>
-                        <em class="q5"></em>
-                        <em class="q6"></em>
-                        <em class="q7"></em>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <p></div>
     </div>
 </div>
 <div class="solution" id="solution">
     <div class="wp">
         <div class="tit-i">
-            <h3>ÐÐÒµ½â¾ö·½°¸</h3>
-            <h5>industry solution</h5>
+            <h3>é€‰ä¿®è¯¾ç¨‹åˆ†ç±»</h3>
+            <h5>Categories</h5>
             <em></em>
         </div>
         <ul class="ul-solution">
-            <li class="li1"><a href=""><span></span><em>ITÐÐÒµ</em></a></li>
-            <li class="li2"><a href=""><span></span><em>ÖÆÔìÐÐÒµ</em></a></li>
-            <li class="li3"><a href=""><span></span><em>·þ×°ÐÐÒµ</em></a></li>
-            <li class="li4"><a href=""><span></span><em>½¡¿µÐÐÒµ</em></a></li>
-            <li class="li5"><a href=""><span></span><em>µØ²úÐÐÒµ</em></a></li>
-            <li class="li6"><a href=""><span></span><em>ÃÀÈÝÐÐÒµ</em></a></li>
-            <li class="li7"><a href=""><span></span><em>´«Ã½ÐÐÒµ</em></a></li>
-            <li class="li8"><a href=""><span></span><em>¼ÒµçÐÐÒµ</em></a></li>
-            <li class="li9"><a href=""><span></span><em>Æû³µÐÐÒµ</em></a></li>
-            <li class="li10"><a href=""><span></span><em>ÑÌ¾ÆÐÐÒµ</em></a></li>
-            <li class="li11"><a href=""><span></span><em>½ÌÓýÐÐÒµ</em></a></li>
-            <li class="li12"><a href=""><span></span><em>Õþ¸®»ú¹¹</em></a></li>
+            <li class="li1"><a href="#"><span></span><em>è®¡ç®—æœº</em></a></li>
+            <li class="li2"><a href="#"><span></span><em>æœºæ¢°åˆ¶é€ </em></a></li>
+            <li class="li3"><a href="#"><span></span><em>è®¾è®¡åˆ›æ„</em></a></li>
+            <li class="li4"><a href="#"><span></span><em>ç”Ÿå‘½å¥åº·</em></a></li>
+            <li class="li5"><a href="#"><span></span><em>å»ºç­‘å­¦</em></a></li>
+            <li class="li6"><a href="#"><span></span><em>ç”µæ°”ä¿¡æ¯</em></a></li>
+            <li class="li7"><a href="#"><span></span><em>è‰ºæœ¯ä¼ åª’</em></a></li>
+            <li class="li8"><a href="#"><span></span><em>ææ–™ç§‘æŠ€</em></a></li>
+            <li class="li9"><a href="#"><span></span><em>è½¦è¾†å·¥ç¨‹</em></a></li>
+            <li class="li10"><a href="#"><span></span><em>èƒ½æºå·¥ç¨‹</em></a></li>
+            <li class="li11"><a href="#"><span></span><em>æ–‡å²ç±»</em></a></li>
+            <li class="li12"><a href="#"><span></span><em>å“²å­¦æ³•å¾‹</em></a></li>
         </ul>
     </div>
 </div>
@@ -503,11 +321,11 @@
     <div class="wp">
         <div class="fd-top">
             <dl>
-                <dt>ÁªÏµÎÒÃÇ</dt>
+                <dt>è”ç³»æˆ‘ä»¬</dt>
                 <dd class="pr">
                     <p><a href="" class="weixin"></a><a href="https://weibo.com/guitoubing" class="sina"></a><span class="weixin-pic"><img src="images/ewm.png" alt=""></span></p>
                     <p><b class="tel">189-3636-1545</b></p>
-                    <h5>ÁªÏµµç»°</h5>
+                    <h5>è”ç³»ç”µè¯</h5>
                 </dd>
             </dl>
         </div>
@@ -515,14 +333,14 @@
     <div class="fd-copy">
         <div class="wp">
             <p>
-                <span>Í¬¼Ã´óÑ§Èí¼þÑ§ÔºÌ¸Èð Í¬¼Ã´óÑ§Èí¼þÑ§Ôº³Â³¬ Í¬¼Ã´óÑ§Æû³µÑ§ÔºÀîÑï Copyright&copy; 2018 </span><a href=""></a> <a href=""></a>
+                <span>åŒæµŽå¤§å­¦è½¯ä»¶å­¦é™¢è°ˆç‘ž åŒæµŽå¤§å­¦è½¯ä»¶å­¦é™¢é™ˆè¶… åŒæµŽå¤§å­¦æ±½è½¦å­¦é™¢æŽæ‰¬ Copyright&copy; 2018 </span><a href="#"></a> <a href="#"></a>
             </p>
         </div>
     </div>
 </div>
 <div class="side2">
     <ul>
-        <li><a href=""><img src="images/r_icon1.png" alt=""></a><div class="weixin"><em></em><img src="images/ewm.png" alt=""></div></li>
+        <li><a href="#"><img src="images/r_icon1.png" alt=""></a><div class="weixin"><em></em><img src="images/ewm.png" alt=""></div></li>
         <li><a href="javascript:goTop();" class="sidetop"><img src="images/r_icon2.png"></a></li>
     </ul>
 </div>

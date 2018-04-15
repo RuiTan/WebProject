@@ -1,4 +1,4 @@
-﻿<%@ page import="java.io.PrintWriter" %>
+﻿<%@ page pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html>
 
@@ -22,10 +22,16 @@
 <!-- //Head -->
 
 <!-- Body -->
-<body style="background:url(images/background.jpg)">
+<body style="background:url(images/background.jpg) 0.7; background-position: center;">
+<jsp:useBean id="user" class="com.tanrui.bean.get_user_info"></jsp:useBean>
+<%
+    HttpSession session1 = request.getSession(false);
+    if (session1.getAttribute("username") != "" && session1.getAttribute("username") != null){
+        response.sendRedirect("index.jsp");
+    }
+%>
 <script language="JavaScript">
     <%
-        HttpSession session1 = request.getSession(false);
         if (session1.getAttribute("login_success") != null){
             int login_success = (int) session1.getAttribute("login_success");
             if (login_success == 0){
@@ -35,12 +41,13 @@
             }else {
             }
         }
-        if (session1.getAttribute("register_success") != null){
+        else if (session1.getAttribute("register_success") != null){
             int register_success = (int) session1.getAttribute("register_success");
             if (register_success == 0){
                 out.print("alert(\"用户已存在，请直接登录或更改用户名注册\")");
             }else if (register_success == 1){
                 out.print("alert(\"注册成功，请前往登录页面登录\")");
+
             }
         }
     %>

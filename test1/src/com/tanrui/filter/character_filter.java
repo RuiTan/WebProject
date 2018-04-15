@@ -12,11 +12,11 @@ public class character_filter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
         resp.setCharacterEncoding("utf-8");
+        resp.setContentType("text/html;charset=UTF-8");
         chain.doFilter(req, resp);
     }
 
-    public void init(FilterConfig config) throws ServletException {
-
+    public void init(FilterConfig config) {
     }
 
 }

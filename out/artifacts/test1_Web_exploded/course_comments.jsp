@@ -1,12 +1,10 @@
-<%@ page language="java" import="java.util.*" pageEncoding="GB2312" %>
-<%@ page import="javax.swing.*" %>
+<%@ page import="com.tanrui.bean.get_comment" pageEncoding="utf-8" %>
 <%@ page import="java.sql.*" %>
-<%@ page import="com.tanrui.bean.get_comment"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>è¯¾ç¨‹è¯„è®º</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta content="telephone=no" name="format-detection" />
@@ -17,6 +15,7 @@
     <link rel="stylesheet" href="css/cui.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/less.css" />
+
 </head>
 <body>
 <jsp:useBean id="user" class="com.tanrui.bean.get_user_info"></jsp:useBean>
@@ -32,43 +31,51 @@
 
 <div id="hd">
     <div class="wp">
-        <div class="logo"><a href="index1"><img src="images/logo.png" alt=""></a></div>
+        <div class="logo"><a href="index.jsp"><img src="images/logo.png" alt=""></a></div>
         <div id="nav">
             <ul>
-                <li><a href="index.jsp" >Ê×Ò³</a></li>
-                <li><a href="course_service.jsp" >¿Î³Ì·þÎñ</a></li>
-                <li><a href="excellent_course.jsp" >¾«Æ·¿Î³Ì</a></li>
-                <li><a href="course_research.jsp" >¿Î³ÌËÑË÷</a></li>
-                <li><a href="course_comments.jsp"  style="color:#e4392a; border-bottom:3px solid #e4392a;" >¿Î³ÌÆÀ¼Û</a></li>
-                <li><a href="contact.jsp">ÍøÕ¾ÁôÑÔ</a></li>
+                <li><a href="index.jsp" >é¦–é¡µ</a></li>
+                <li><a href="course_service.jsp" >è¯¾ç¨‹æœåŠ¡</a></li>
+                <li><a href="excellent_course.jsp" >ç²¾å“è¯¾ç¨‹</a></li>
+                <li><a href="course_research.jsp?page=1" >è¯¾ç¨‹æœç´¢</a></li>
+                <li><a href="course_comments.jsp"  style="color:#e4392a; border-bottom:3px solid #e4392a;" >è¯¾ç¨‹è¯„ä»·</a></li>
+                <li><a href="contact.jsp">ç½‘ç«™ç•™è¨€</a></li>
 
             </ul>
-            »¶Ó­ <a href="#"><%=session1.getAttribute("username")%></a> À´µ½Í¬¼Ã´óÑ§Ñ¡ÐÞ°Ù¿ÆÍø
+            <div style="text-align: center; align-content: center; padding-top: 20px;">
+                æ¬¢è¿Ž<a href="#">
+                <%=session1.getAttribute("username")%>
+            </a>æ¥åˆ°åŒæµŽå¤§å­¦é€‰ä¿®è¯¾ç™¾ç§‘äº’åŠ¨å¹³å°
+                <a href="ql">
+                    <p style="text-align: end">é€€å‡ºç™»å½•</p>
+                </a>
+            </div>
         </div>
     </div>
 </div>
 <div class="c"></div>
 <div id="m-hd">
-    <a href="index1" class="m-logo"><img src="images/logo.png" alt=""></a>
+    <a href="index.jsp" class="m-logo"><img src="images/logo.png" alt=""></a>
     <div class="m-trigger"></div>
     <ul class="m-nav">
-        <li><a href="index.jsp">Ê×Ò³ </a></li>
-        <li><a href="course_service.jsp" >¿Î³Ì·þÎñ</a></li>
-        <li><a href="excellent_course.jsp" >¾«Æ·¿Î³Ì</a></li>
-        <li><a href="course_research.jsp" >¿Î³ÌËÑË÷</a></li>
-        <li><a href="course_comments.jsp"  class="v1">¿Î³ÌÆÀ¼Û</a></li>
-        <li><a href="contact.jsp">ÍøÕ¾ÁôÑÔ</a></li>
+        <li><a href="index.jsp">é¦–é¡µ </a></li>
+        <li><a href="course_service.jsp" >è¯¾ç¨‹æœåŠ¡</a></li>
+        <li><a href="excellent_course.jsp" >ç²¾å“è¯¾ç¨‹</a></li>
+        <li><a href="course_research.jsp?page=1" >è¯¾ç¨‹æœç´¢</a></li>
+        <li><a href="course_comments.jsp"  class="v1">è¯¾ç¨‹è¯„ä»·</a></li>
+        <li><a href="contact.jsp">ç½‘ç«™ç•™è¨€</a></li>
     </ul>
 </div>
 <div class="c"></div>	<div id="bd">
-<div id="ban-in" style="background-image:url(images/14415956107965.jpg)">
+<div id="ban-in" style="background-image:url(images/course_comments.jpg)">
     <div class="ban-bg"></div>
 </div>
 <div class="wp">
 <div class="tit-i">
-    <h3>¿Î³ÌÆÀ¼Û</h3>
+    <h3>è¯¾ç¨‹è¯„ä»·</h3>
     <h5>Courses <span>Comments</span></h5>
 </div>
+
 <ul class="ul-list">
 
     <%
@@ -79,27 +86,38 @@
                 String sql = "SELECT * FROM `comments` ORDER BY `present_time` DESC";
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(sql);
-                int i = 1;
-                while (resultSet.next() && i++<=4) {
+                while (resultSet.next()) {
                     get_comment comment = new get_comment();
                     comment.setComment(resultSet.getString(1));
                     comment.setLessons_num(resultSet.getString(2));
-                    comment.setUsername(resultSet.getString(3));
-                    comment.setDate(resultSet.getString(4));
+                    comment.setLessons_name(resultSet.getString(3));
+                    comment.setUsername(resultSet.getString(4));
+                    comment.setDate(resultSet.getString(5));
+                    comment.setLevel(resultSet.getString(6));
+                    if (resultSet.getString(4).equals("20180307210975")){
+                        break;
+                    }
                     sql = "SELECT * FROM lessons WHERE lessons_num=" + comment.getLessons_num();
                     ResultSet resultSet1 = connection.createStatement().executeQuery(sql);
                     while (resultSet1.next()){
                         comment.setLessons_name(resultSet1.getString(2));
                     }
+                    String href = "case-info.jsp?lessons_num=" + comment.getLessons_num();
+                    String commentString;
+                    if (comment.getComment().length() < 25){
+                        commentString = comment.getComment()+"        ";
+                    }else {
+                        commentString = comment.getComment().substring(0,25) + "...";
+                    }
                     out.print("<li>\n" +
-                            "        <div class=\"pad\">\n" +
+                            "        <div class=\"pad\" style=\"height: 150px\">\n" +
                             "            <div class=\"bor\">\n" +
                             "                <div class=\"txt\">\n" +
                             "                    <div class=\"title\">\n" +
                             "                        <span><em>" + comment.getLessons_num() + "</em></span>\n" +
-                            "                        <h3><a href=\"case-info.jsp\">"+ comment.getLessons_name() + "</a></h3>\n" +
+                            "                        <h3><a href=\"" + href + "\">" + comment.getLessons_name() + "</a></h3>\n" +
                             "                    </div>\n" +
-                            "                    <a href=\"case-info.jsp\"><p>"+ comment.getUsername() + ": " + comment.getComment() +"</p></a>\n" +
+                            "                    <a href="+ href +"><p>"+ comment.getUsername() + ": " + commentString +"</p></a>\n" +
                             "                </div>\n" +
                             "            </div>\n" +
                             "        </div>\n" +
@@ -113,204 +131,8 @@
         }
 
     %>
-
-    <%--<li>--%>
-        <%--<div class="pad">--%>
-            <%--<div class="pic"><a href="case-info.jsp"><img src="images/14573395395186.jpg" alt="ÍøÒ³Éè¼Æ,±±¾©ÍøÒ³Éè¼Æ,°¬ÂêÍøÒ³Éè¼Æ,ÊÖ»ú¶ËÍøÒ³Éè¼Æ"></a></div>--%>
-            <%--<div class="bor">--%>
-                <%--<div class="txt">--%>
-                    <%--<div class="title">--%>
-                        <%--<span><em>03/07</em>2016</span>--%>
-                        <%--<h3><a href="case-info.jsp">ÈÃÊÓ¾õÉè¼Æ±äµÃ¸ßÐ§ÇÒÓÐËµ·þÁ¦</a></h3>--%>
-                    <%--</div>--%>
-                    <%--<a href="case-info.jsp"><p>ÊÓ¾õÉè¼ÆÓÐÒ»¸öÌìÈ»µÄÀ§ÄÑ£¬ÒòÎªÊÓ¾õ·ç¸ñÊÇÒ»¸öºÜÖ÷¹ÛµÄ¸ÐÊÜ£¬ËùÒÔÉè¼ÆÊ¦ºÜÄÑËµ·þÁìµ¼ºÍÆäËûÈËÈÏ¿É</p></a>--%>
-                <%--</div>--%>
-                <%--<div class="more"><a href="case-info.jsp" class="r">²é¿´¸ü¶à ></a></div>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-    <%--</li>--%>
-
-    <%--<li>--%>
-        <%--<div class="pad">--%>
-            <%--<div class="pic"><a href="case-info.jsp"><img src="images/14570594285205.png" alt="ÍøÒ³Éè¼Æ,±±¾©ÍøÒ³Éè¼Æ,°¬ÂêÍøÒ³Éè¼Æ,ÊÖ»ú¶ËÍøÒ³Éè¼Æ"></a></div>--%>
-            <%--<div class="bor">--%>
-                <%--<div class="txt">--%>
-                    <%--<div class="title">--%>
-                        <%--<span><em>03/04</em>2016</span>--%>
-                        <%--<h3><a href="case-info.jsp">°ïÄãÉè¼ÆºÃÓÃ´¥¿ØÊÖÊÆµÄÎåÖÖÊµÓÃ·½·¨</a></h3>--%>
-                    <%--</div>--%>
-                    <%--<a href="case-info.jsp"><p>Ëæ×Å´¥ÃþÆÁÖð½¥³ÉÎªÒÆ¶¯Éè±¸µÄ±êÅä£¬¶àµã´¥¿ØÊÖÊÆµÄ¹ã·ºÓ¦ÓÃ£¬ÈÃÎÒÃÇÓëÊÖ»ú¡¢Æ½°åµçÄÔÉõÖÁÊÇ±Ê¼Ç±¾</p></a>--%>
-                <%--</div>--%>
-                <%--<div class="more"><a href="case-info.jsp" class="r">²é¿´¸ü¶à ></a></div>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-    <%--</li>--%>
-
-    <%--<li>--%>
-        <%--<div class="pad">--%>
-            <%--<div class="pic"><a href="case-info.jsp"><img src="images/14569776901944.jpg" alt="ÍøÒ³Éè¼Æ,°¬ÂêÍøÒ³Éè¼Æ,±±¾©ÍøÒ³Éè¼Æ,ÊÖ»ú¶ËÍøÒ³Éè¼Æ,ÍøÕ¾¿ª·¢"></a></div>--%>
-            <%--<div class="bor">--%>
-                <%--<div class="txt">--%>
-                    <%--<div class="title">--%>
-                        <%--<span><em>03/03</em>2016</span>--%>
-                        <%--<h3><a href="case-info.jsp">¼«ÓÐ¿ÉÄÜ±»µÍ¹ÀµÄÈýÖÖÓÐÈ¤µÄÍøÒ³Éè¼ÆÇ÷ÊÆ</a></h3>--%>
-                    <%--</div>--%>
-                    <%--<a href="case-info.jsp"><p>Éè¼Æ³ö²»Í¬·²ÏìµÄÍøÕ¾ÊÇÐí¶àÉè¼ÆÊ¦Ò»Ö±×·ÇóµÄÊÂÇé£¬ËùÒÔ´ó¼Ò×ÅÃÔ¸÷ÖÖÊ±ÉÐµÄÔªËØ£¬Æ¯ÁÁµÄÅäÉ«£¬Á÷ÐÐ</p></a>--%>
-                <%--</div>--%>
-                <%--<div class="more"><a href="case-info.jsp" class="r">²é¿´¸ü¶à ></a></div>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-    <%--</li>--%>
-
-    <%--<li>--%>
-        <%--<div class="pad">--%>
-            <%--<div class="pic"><a href="case-info.jsp"><img src="images/14568889657526.jpg" alt="ÒÆ¶¯¶ËÍøÒ³Éè¼Æ,ÒÆ¶¯¶ËÍøÕ¾¿ª·¢,ÊÖ»úÕ¾ÍøÕ¾½¨Éè,±±¾©ÍøÕ¾½¨Éè"></a></div>--%>
-            <%--<div class="bor">--%>
-                <%--<div class="txt">--%>
-                    <%--<div class="title">--%>
-                        <%--<span><em>03/02</em>2016</span>--%>
-                        <%--<h3><a href="case-info.jsp">»ÙµôÒÆ¶¯Ó¦ÓÃÉè¼ÆµÄ6¸öÏëµ±È»</a></h3>--%>
-                    <%--</div>--%>
-                    <%--<a href="case-info.jsp"><p>ÈËÃÇ¶ÔÓ¦ÓÃ½çÃæµÄÆÚÍû¸ü¶àÁË£¬±ê×¼ÕýÔÚË®ÕÇ´¬¸ß¡£¶ÔÓÚ»ùÓÚÓ¦ÓÃµÄ¹«Ë¾£¬²»µ±µØºöÊÓÏ¸½Ú»áËðº¦Ó¦ÓÃµÄ</p></a>--%>
-                <%--</div>--%>
-                <%--<div class="more"><a href="case-info.jsp" class="r">²é¿´¸ü¶à ></a></div>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-    <%--</li>--%>
-
-    <%--<li>--%>
-        <%--<div class="pad">--%>
-            <%--<div class="pic"><a href="case-info.jsp"><img src="images/14568143499060.jpg" alt="ÍøÒ³Éè¼Æ,±±¾©ÍøÒ³Éè¼Æ,°¬ÂêÍøÒ³Éè¼Æ,ÊÖ»ú¶ËÍøÒ³ÖÆ×÷,±±¾©ÍøÕ¾½¨Éè"></a></div>--%>
-            <%--<div class="bor">--%>
-                <%--<div class="txt">--%>
-                    <%--<div class="title">--%>
-                        <%--<span><em>03/01</em>2016</span>--%>
-                        <%--<h3><a href="case-info.jsp">¸øÉè¼ÆÊ¦µÄÍøÒ³¶¯»­Éè¼Æ»ù´¡Ö¸ÄÏ</a></h3>--%>
-                    <%--</div>--%>
-                    <%--<a href="case-info.jsp"><p>Ëæ×Å¼¼ÊõµÄ»ýÀÛ£¬ÍøÒ³ÖÐµÄ¶¯»­Ò²ÒÑ¾­ÊÇ±éµØ¿ª»¨£¬ËüÊ±ÉÐ£¬ÓÐÈ¤£¬Ò²ÈËÐÔ»¯¡£²»¶ÏÓ¿ÏÖµÄÐÂ¼¼ÊõºÍÐÂ¹¤</p></a>--%>
-                <%--</div>--%>
-                <%--<div class="more"><a href="case-info.jsp" class="r">²é¿´¸ü¶à ></a></div>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-    <%--</li>--%>
-
-    <%--<li>--%>
-        <%--<div class="pad">--%>
-            <%--<div class="pic"><a href="case-info.jsp"><img src="images/14567250547258.jpg" alt="ÍøÒ³Éè¼Æ,°¬ÂêÍøÒ³Éè¼Æ,±±¾©ÍøÒ³Éè¼Æ,ÊÖ»ú¶ËÍøÒ³Éè¼Æ,ÍøÕ¾ÖÆ×÷"></a></div>--%>
-            <%--<div class="bor">--%>
-                <%--<div class="txt">--%>
-                    <%--<div class="title">--%>
-                        <%--<span><em>02/29</em>2016</span>--%>
-                        <%--<h3><a href="case-info.jsp">ÎªÐÂÊÖÁ¿Éí´òÔìµÄUI½çÃæÅäÉ«·½·¨</a></h3>--%>
-                    <%--</div>--%>
-                    <%--<a href="case-info.jsp"><p>ÈçºÎ¿ìËÙµÄÑ¡Ôñ»ò´îÅäÑÕÉ«ÄØ£¿¡°Ñ¡Ôñ¡±ºÍ¡°´îÅäÑÕÉ«¡±£¬Ìýµ½ÕâÁ½¸ö´Ê»ãµÄÊ±ºò£¬ÊÇ²»ÊÇ´ÓÇ±ÒâÊ¶ÉÏ¾Í</p></a>--%>
-                <%--</div>--%>
-                <%--<div class="more"><a href="case-info.jsp" class="r">²é¿´¸ü¶à ></a></div>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-    <%--</li>--%>
-
-    <%--<li>--%>
-        <%--<div class="pad">--%>
-            <%--<div class="pic"><a href="case-info.jsp"><img src="images/14563773668654.jpg" alt="ÍøÒ³Éè¼Æ,ÍøÒ³ÖÆ×÷,ÍøÕ¾½¨Éè,ÍøÕ¾¿ª·¢,°¬ÂêÍøÕ¾Éè¼Æ,±±¾©ÍøÕ¾½¨Éè,ÊÖ»ú¶ËÍøÒ³ÖÆ×÷"></a></div>--%>
-            <%--<div class="bor">--%>
-                <%--<div class="txt">--%>
-                    <%--<div class="title">--%>
-                        <%--<span><em>02/25</em>2016</span>--%>
-                        <%--<h3><a href="case-info.jsp">ÈÃÄãµÄÍøÒ³ÍÑÓ±¶ø³ö7ÏîÃØ¾÷</a></h3>--%>
-                    <%--</div>--%>
-                    <%--<a href="case-info.jsp"><p>È¡ÔÃÓÃ»§µÄ¹Ø¼üÔÚÓÚÏñÓÃ»§Ò»ÑùË¼¿¼¡£²¢²»ÊÇÃ¿Ò»´Î´´ÐÂ¡¢Ã¿Ò»´ÎÖØËÜ¡¢Ã¿Ò»ÖÖÐÂ¼¼Êõ¶¼ÄÜÈÃÓÃ»§ÓäÔÃ£¬</p></a>--%>
-                <%--</div>--%>
-                <%--<div class="more"><a href="case-info.jsp" class="r">²é¿´¸ü¶à ></a></div>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-    <%--</li>--%>
-
-    <%--<li>--%>
-        <%--<div class="pad">--%>
-            <%--<div class="pic"><a href="case-info.jsp"><img src="images/14561176714477.png" alt="ÍøÕ¾Éè¼Æ,°¬ÂêÍøÕ¾Éè¼Æ,±±¾©ÍøÕ¾Éè¼Æ,ÊÖ»ú¶ËÍøÕ¾Éè¼Æ"></a></div>--%>
-            <%--<div class="bor">--%>
-                <%--<div class="txt">--%>
-                    <%--<div class="title">--%>
-                        <%--<span><em>02/22</em>2016</span>--%>
-                        <%--<h3><a href="case-info.jsp">³£¼ûµÄÍøÕ¾½»»¥Éè¼Æ´íÎó</a></h3>--%>
-                    <%--</div>--%>
-                    <%--<a href="case-info.jsp"><p>ºÃµÄ½»»¥Éè¼Æ¿ÉÒÔÇø·Ö¿ªÓÐÖÊÁ¿µÄÍøÕ¾ºÍÆäËûÆÕÍ¨ÍøÕ¾¡£È»¶ø£¬Èç¹ûÓÐÃ÷ÏÔµÄÉè¼Æ´íÎó£¬ËüÖ»»á¸øÓèÄã±¾</p></a>--%>
-                <%--</div>--%>
-                <%--<div class="more"><a href="case-info.jsp" class="r">²é¿´¸ü¶à ></a></div>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-    <%--</li>--%>
-
-    <%--<li>--%>
-        <%--<div class="pad">--%>
-            <%--<div class="pic"><a href="case-info.jsp"><img src="images/14558457392531.jpg" alt="ÍøÒ³Éè¼Æ,°¬ÂêÍøÒ³Éè¼Æ,±±¾©ÍøÒ³Éè¼Æ,ÍøÕ¾¿ª·¢,ÊÖ»ú¶ËÍøÒ³ÖÆ×÷"></a></div>--%>
-            <%--<div class="bor">--%>
-                <%--<div class="txt">--%>
-                    <%--<div class="title">--%>
-                        <%--<span><em>02/19</em>2016</span>--%>
-                        <%--<h3><a href="case-info.jsp">½»»¥Éè¼ÆÊ¦Ó¦¸ÃÖªµÀµÄ¡¸Êý¾Ý·ÖÎö¡¹</a></h3>--%>
-                    <%--</div>--%>
-                    <%--<a href="case-info.jsp"><p>Êý¾Ý·ÖÎö£¬²»½ö½öÊÇ²úÆ·»òÔËÓªµÄ¡°×¨Àû¡±£¬×÷Îª½»»¥Éè¼ÆÊ¦Ò²ÐèÒªÕÆÎÕÕâ·½ÃæµÄ¼¼ÄÜ£¬À´°ïÖúÎÒÃÇ×ö¸ü</p></a>--%>
-                <%--</div>--%>
-                <%--<div class="more"><a href="case-info.jsp" class="r">²é¿´¸ü¶à ></a></div>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-    <%--</li>--%>
-
-    <%--<li>--%>
-        <%--<div class="pad">--%>
-            <%--<div class="pic"><a href="case-info.jsp"><img src="images/14557667596668.jpg" alt="ÍøÒ³Éè¼Æ,°¬ÂêÍøÒ³Éè¼Æ,±±¾©ÍøÒ³Éè¼Æ,ÊÖ»ú¶ËÍøÒ³Éè¼Æ,ÍøÕ¾Éè¼Æ"></a></div>--%>
-            <%--<div class="bor">--%>
-                <%--<div class="txt">--%>
-                    <%--<div class="title">--%>
-                        <%--<span><em>02/18</em>2016</span>--%>
-                        <%--<h3><a href="case-info.jsp">ÇÄÈ»Á÷ÐÐµÄ»ìºÏÐÍÊÓ²îÍøÒ³Éè¼ÆÇ÷ÊÆ</a></h3>--%>
-                    <%--</div>--%>
-                    <%--<a href="case-info.jsp"><p>Èç¹ûÄã×ÐÏ¸¹Û²ìÄÇÐ©×îÐÂµÄÊ¹ÓÃÁËÊÓ²î¼¼ÊõµÄÍøÒ³£¬Äã»á·¢ÏÖÕâÐ©ÍøÕ¾Ëù²ÉÓÃµÄÊÓ²îÉè¼ÆÒÑ¾­ËÆÊÇ¶ø·ÇÁË</p></a>--%>
-                <%--</div>--%>
-                <%--<div class="more"><a href="case-info.jsp" class="r">²é¿´¸ü¶à ></a></div>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-    <%--</li>--%>
-
-    <%--<li>--%>
-        <%--<div class="pad">--%>
-            <%--<div class="pic"><a href="case-info.jsp"><img src="images/14556746991126.jpg" alt="ÍøÕ¾Éè¼Æ,°¬ÂêÍøÕ¾Éè¼Æ,±±¾©ÍøÕ¾Éè¼Æ,ÊÖ»ú¶ËÍøÕ¾Éè¼Æ"></a></div>--%>
-            <%--<div class="bor">--%>
-                <%--<div class="txt">--%>
-                    <%--<div class="title">--%>
-                        <%--<span><em>02/17</em>2016</span>--%>
-                        <%--<h3><a href="case-info.jsp">Éè¼ÆºÍÒÕÊõÓÐÄÄÐ©±¾ÖÊÇø±ð</a></h3>--%>
-                    <%--</div>--%>
-                    <%--<a href="case-info.jsp"><p>Éè¼ÆÓëÒÕÊõ£¬ÕâÁ½ÕßÖ®¼äÓÐ×ÅºÜ¶àµÄÏàËÆÖ®´¦£¬µ«±¾ÖÊÉÏÈ´ÊôÓÚ²»Í¬µÄÑ§¿ÆÁìÓò¡£ËüÃÇÓÐ×Å¸÷×Ô²»Í¬µÄÄ¿</p></a>--%>
-                <%--</div>--%>
-                <%--<div class="more"><a href="case-info.jsp" class="r">²é¿´¸ü¶à ></a></div>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-    <%--</li>--%>
-
-    <%--<li>--%>
-        <%--<div class="pad">--%>
-            <%--<div class="pic"><a href="case-info.jsp"><img src="images/14555888017922.jpg" alt="ÍøÒ³Éè¼Æ,°¬ÂêÍøÒ³Éè¼Æ,±±¾©ÍøÒ³Éè¼Æ,ÍøÕ¾¿ª·¢,ÊÖ»ú¶ËÍøÕ¾½¨Éè"></a></div>--%>
-            <%--<div class="bor">--%>
-                <%--<div class="txt">--%>
-                    <%--<div class="title">--%>
-                        <%--<span><em>02/16</em>2016</span>--%>
-                        <%--<h3><a href="case-info.jsp">ÒÆ¶¯¶ËÍøÒ³Éè¼Æ¼òÃ÷Ö¸ÄÏ</a></h3>--%>
-                    <%--</div>--%>
-                    <%--<a href="case-info.jsp"><p>Ò²Ðí¡°ÒÆ¶¯¶ËÓÅÏÈ¡±µÄËµ·¨²¢²»×¼È·£¬µ«ÊÇ¡°ÒÆ¶¯¶ËÆÁÄ»ÎªÖ÷¡±µÄËµ·¨ºÍÊµ¼Ê×´¿öÒÑ¾­·Ç³£½Ó½üÁË¡£´òÔì</p></a>--%>
-                <%--</div>--%>
-                <%--<div class="more"><a href="case-info.jsp" class="r">²é¿´¸ü¶à ></a></div>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-    <%--</li>--%>
 </ul>
 <div class="c"></div>
-<div class="pages">
-
-    <a href='' class='a-prev'><</a> <a class='page-on'>1</a> <a href="/news5_0-2">2</a> <a href="/news5_0-3">3</a> <a href="/news5_0-4">4</a> <a href="/news5_0-5">5</a> <a class='a-next' href="/news5_0-2">></a>
-</div>
 </div>
 </div>
 
@@ -320,11 +142,11 @@
     <div class="wp">
         <div class="fd-top">
             <dl>
-                <dt>ÁªÏµÎÒÃÇ</dt>
+                <dt>è”ç³»æˆ‘ä»¬</dt>
                 <dd class="pr">
                     <p><a href="" class="weixin"></a><a href="https://weibo.com/guitoubing" class="sina"></a><span class="weixin-pic"><img src="images/ewm.png" alt=""></span></p>
                     <p><b class="tel">189-3636-1545</b></p>
-                    <h5>ÁªÏµµç»°</h5>
+                    <h5>è”ç³»ç”µè¯</h5>
                 </dd>
             </dl>
         </div>
@@ -332,7 +154,7 @@
     <div class="fd-copy">
         <div class="wp">
             <p>
-                <span>Í¬¼Ã´óÑ§Èí¼þÑ§ÔºÌ¸Èð Í¬¼Ã´óÑ§Èí¼þÑ§Ôº³Â³¬ Í¬¼Ã´óÑ§Æû³µÑ§ÔºÀîÑï Copyright&copy; 2018 </span><a href=""></a> <a href=""></a>
+                <span>åŒæµŽå¤§å­¦è½¯ä»¶å­¦é™¢è°ˆç‘ž åŒæµŽå¤§å­¦è½¯ä»¶å­¦é™¢é™ˆè¶… åŒæµŽå¤§å­¦æ±½è½¦å­¦é™¢æŽæ‰¬ Copyright&copy; 2018 </span><a href=""></a> <a href=""></a>
             </p>
         </div>
     </div>
@@ -345,6 +167,7 @@
 </div>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/lib.js"></script>
+
 
 </body>
 </html>

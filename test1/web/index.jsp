@@ -1,12 +1,11 @@
-<%@ page language="java" import="java.util.*" pageEncoding="GB2312" %>
-<%@ page import="javax.swing.*" %>
+<%@ page import="java.util.*" pageEncoding="utf-8" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="com.tanrui.bean.get_comment" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>同济大学选修百科</title>
 
     <link rel="stylesheet" href="css/cui.css" />
     <link rel="stylesheet" href="css/style.css" />
@@ -27,32 +26,39 @@
 
 <div id="hd">
     <div class="wp">
-        <div class="logo"><a href="index1"><img src="images/logo.png" alt=""></a></div>
+        <div class="logo"><a href="index.jsp"><img src="images/logo.png" alt=""></a></div>
         <div id="nav">
             <ul>
-                <li><a href="index.jsp"   style="color:#e4392a; border-bottom:3px solid #e4392a;">��ҳ</a></li>
-                <li><a href="course_service.jsp" >�γ̷���</a></li>
-                <li><a href="excellent_course.jsp" >��Ʒ�γ�</a></li>
-                <li><a href="course_research.jsp" >�γ�����</a></li>
-                <li><a href="course_comments.jsp" >�γ�����</a></li>
-                <li><a href="contact.jsp">��վ����</a></li>
-
+                <li><a href="index.jsp"   style="color:#e4392a; border-bottom:3px solid #e4392a;">首页</a></li>
+                <li><a href="course_service.jsp" >课程服务</a></li>
+                <li><a href="excellent_course.jsp" >精品课程</a></li>
+                <li><a href="course_research.jsp?page=1" >课程搜索</a></li>
+                <li><a href="course_comments.jsp" >课程评价</a></li>
+                <li><a href="contact.jsp">网站留言</a></li>
             </ul>
-            ��ӭ <a href="#"><%=session1.getAttribute("username")%></a> ����ͬ�ô�ѧѡ�ްٿ���
+            <%--欢迎 <a href="#"><%=session1.getAttribute("username")%></a> 来到同济大学选修百科网--%>
+            <div style="text-align: center; align-content: center; padding-top: 20px;">
+                欢迎<a href="#">
+                    <%=session1.getAttribute("username")%>
+                </a>来到同济大学选修课百科互动平台
+                <a href="ql">
+                    <p style="text-align: end">退出登录</p>
+                </a>
+            </div>
         </div>
     </div>
 </div>
 <div class="c"></div>
 <div id="m-hd">
-    <a href="index1" class="m-logo"><img src="images/logo.png" alt=""></a>
+    <a href="index.jsp" class="m-logo"><img src="images/logo.png" alt=""></a>
     <div class="m-trigger"></div>
     <ul class="m-nav">
-        <li><a href="index.jsp" class="v1">��ҳ </a></li>
-        <li><a href="course_service.jsp" >�γ̷���</a></li>
-        <li><a href="excellent_course.jsp" >��Ʒ�γ�</a></li>
-        <li><a href="course_research.jsp" >�γ�����</a></li>
-        <li><a href="course_comments.jsp" >�γ�����</a></li>
-        <li><a href="contact.jsp">��վ����</a></li>
+        <li><a href="index.jsp" class="v1">首页 </a></li>
+        <li><a href="course_service.jsp" >课程服务</a></li>
+        <li><a href="excellent_course.jsp" >精品课程</a></li>
+        <li><a href="course_research.jsp?page=1" >课程搜索</a></li>
+        <li><a href="course_comments.jsp" >课程评价</a></li>
+        <li><a href="contact.jsp">网站留言</a></li>
     </ul>
 </div>
 <div class="c"></div>
@@ -64,25 +70,25 @@
             <li class="s1">
                 <img src="images/banner1.jpg">
                 <div class="ban-txt">
-                    <h5 data-animate="fadeInDown" class="animated">innovating for you</h5>
-                    <h2 data-animate="fadeInRight" class="animated">ѡ��֪����</h2>
-                    <h3 data-animate="fadeInUp" class="animated">�ṩ�м�ֵ��ѡ�޿ν���</h3>
+                    <h5 data-animate="fadeInDown" class="animated">Science Fiction</h5>
+                    <h2 data-animate="fadeInRight" class="animated">科幻电影赏析</h2>
+                    <h3 data-animate="fadeInUp" class="animated">亦幻亦真</h3>
                 </div>
             </li>
             <li class="s2">
                 <img src="images/banner2.jpg">
                 <div class="ban-txt">
-                    <h2 data-animate="fadeInRight" class="animated">ѡ��֮�Ҽ�</h2>
-                    <h3 data-animate="fadeInDown" class="animated">Listen to your voice</h3>
-                    <h4 data-animate="fadeInUp" class="animated">�������ѡ�޿γ̵�������飬���������˽����ſγ�</h4>
+                    <h2 data-animate="fadeInRight" class="animated">世界格局与大国关系</h2>
+                    <h3 data-animate="fadeInDown" class="animated">World and We</h3>
+                    <h4 data-animate="fadeInUp" class="animated" style="color: red;">是两极格局还是多极鼎力？</h4>
                 </div>
             </li>
             <li class="s3">
                 <img src="images/banner3.jpg">
                 <div class="ban-txt">
-                    <h2 data-animate="fadeInDown" class="animated">ѡ�޴��̸</h2>
-                    <h3 data-animate="fadeInRight" class="animated">The audience's eyes are sharp</h3>
-                    <h4 data-animate="fadeInUp" class="animated">�˽��Ҷ�ѡ�޿γ̵Ŀ������͹۵��˽�ѡ�޿γ�</h4>
+                    <h2 data-animate="fadeInDown" class="animated">Show Your Mind</h2>
+                    <h3 data-animate="fadeInRight" class="animated">大学生心理健康与调试</h3>
+                    <h4 data-animate="fadeInUp" class="animated" style="color: red">认知、情感、意志、行为、人格</h4>
                 </div>
             </li>
         </ul>
@@ -92,17 +98,17 @@
 <div class="row1 fix">
     <div class="wp">
         <div class="tit-i">
-          <h3>��Ʒ�γ� </h3>
-          <h5>Excellent course</h5>
+          <h3>选修百科 </h3>
+            <h5><span>Course</span> Encyclopedia</h5>
         </div>
         <ul class="ul-icon-i">
             <li class="li1">
                 <div class="pad">
-                    <a href="">
+                    <a href="course_research.jsp?page=1">
                         <span></span>
-                        <h3>ѡ��֪����</h3>
+                        <h3>选修知多少</h3>
                         <em></em>
-                        <p>�ṩ�м�ֵ��ѡ�޿βο�</p>
+                        <p>提供有价值的选修课参考</p>
                         <div class="pic">
                             <img src="images/m1.png" alt="">
                             <img src="images/m2.png" alt="" class="pic-icon">
@@ -112,11 +118,11 @@
             </li>
             <li class="li2">
                 <div class="pad">
-                    <a href="">
+                    <a href="course_research.jsp?page=1">
                         <span></span>
-                        <h3>ѡ��֮�Ҽ�</h3>
+                        <h3>选修之我见</h3>
                         <em></em>
-                        <p>�������ѡ�޿γ̵�������飬���������˽����ſγ�</p>
+                        <p>给予你对选修课程的意见建议，让所有人了解这门课程</p>
                         <div class="pic">
                             <img src="images/m3.png" alt="">
                             <img src="images/m4.png" alt="" class="pic-icon">
@@ -126,11 +132,11 @@
             </li>
             <li class="li3">
                 <div class="pad">
-                    <a href="">
+                    <a href="course_comments.jsp">
                         <span></span>
-                        <h3>ѡ�޴��̸</h3>
+                        <h3>选修大家谈</h3>
                         <em></em>
-                        <p>�˽��Ҷ�ѡ�޿γ̵Ŀ������͹۵��˽�ѡ�޿γ�</p>
+                        <p>了解大家对选修课程的看法，客观的了解选修课程</p>
                         <div class="pic">
                             <img src="images/m5.png" alt="">
                             <img src="images/m6.png" alt="" class="pic-icon">
@@ -140,11 +146,11 @@
             </li>
             <li class="li4">
                 <div class="pad">
-                    <a href="">
+                    <a href="contact.jsp">
                         <span></span>
-                        <h3>�Ҷ���վ�п���</h3>
+                        <h3>我对网站有看法</h3>
                         <em></em>
-                        <p>����������������飬�����Ǹ��õؽ�����վ</p>
+                        <p>提出您宝贵的意见建议，让我们更好地建设网站</p>
                         <div class="pic">
                             <img src="images/m7.png" alt="">
                             <img src="images/m8.png" alt="" class="pic-icon">
@@ -158,105 +164,105 @@
 <div class="row2 fix">
     <div class="wp">
         <div class="tit-i">
-            <h3>���ò��ϵľ�Ʒ�γ�</h3>
+            <h3>不得不上的精品课程</h3>
             <h5><span>case</span> of Excellent</h5>
         </div>
         <div class="case-i">
-
             <div class="case-i-r" style="width: 100%;">
                 <ul class="ul-case-i">
+
                     <li>
-                        <a href="case-info.jsp">
-                            <div class="pic"><img src="images/14429937588106.jpg"></div>
+                        <a href="case-info.jsp?lessons_num=7993201">
+                            <div class="pic"><img src="images/i3.jpg"></div>
                             <div class="hover">
                                 <b></b>
                                 <div class="txt">
-                                    <img src="images/logo_small.png" alt="">
-                                    <h3>�߿Ƽ��ھ����ϵ�Ӧ��</h3>
+                                    <img src="images/logo_small.png" alt="电影经典">
+                                    <h3>电影经典</h3>
                                 </div>
                             </div>
                         </a>
                     </li>
                     <li>
-                        <a href="case-info.jsp">
-                            <div class="pic"><img src="images/14425590613750.jpg"></div>
+                        <a href="case-info.jsp?lessons_num=300201">
+                            <div class="pic"><img src="images/i4.jpg"></div>
                             <div class="hover">
                                 <b></b>
                                 <div class="txt">
-                                    <img src="images/logo_small.png" alt="">
-                                    <h3>��ѧ��ְҵ���Ĺ滮</h3>
+                                    <img src="images/logo_small.png" alt="数据分析与统计方法">
+                                    <h3>数据分析与统计方法</h3>
                                 </div>
                             </div>
                         </a>
                     </li>
                     <li>
-                        <a href="case-info.jsp">
-                            <div class="pic"><img src="images/14423045107241.jpg"></div>
+                        <a href="case-info.jsp?lessons_num=UGC00701">
+                            <div class="pic"><img src="images/i7.jpg"></div>
                             <div class="hover">
                                 <b></b>
                                 <div class="txt">
-                                    <img src="images/logo_small.png" alt="">
-                                    <h3>��Ӱ����</h3>
+                                    <img src="images/logo_small.png" alt="星期音乐会">
+                                    <h3>星期音乐会</h3>
                                 </div>
                             </div>
                         </a>
                     </li>
                     <li>
-                        <a href="case-info.jsp">
-                            <div class="pic"><img src="images/14423036593132.jpg"></div>
+                        <a href="case-info.jsp?lessons_num=10048301">
+                            <div class="pic"><img src="images/i8.jpg"></div>
                             <div class="hover">
                                 <b></b>
                                 <div class="txt">
-                                    <img src="images/logo_small.png" alt="">
-                                    <h3>������ԭ����ʵ��</h3>
+                                    <img src="images/logo_small.png" alt="大学计算机应用基础">
+                                        <h3>大学计算机应用基础</h3>
                                 </div>
                             </div>
                         </a>
                     </li>
                     <li>
-                        <a href="case-info.jsp">
-                            <div class="pic"><img src="images/14422959085097.jpg"></div>
+                        <a href="case-info.jsp?lessons_num=18050001">
+                            <div class="pic"><img src="images/i5.jpg"></div>
                             <div class="hover">
                                 <b></b>
                                 <div class="txt">
-                                    <img src="images/logo_small.png" alt="">
-                                    <h3>��������</h3>
+                                    <img src="images/logo_small.png" alt="美术欣赏">
+                                    <h3>美术欣赏</h3>
                                 </div>
                             </div>
                         </a>
                     </li>
                     <li>
-                        <a href="case-info.jsp">
-                            <div class="pic"><img src="images/14429911135818.jpg"></div>
+                        <a href="case-info.jsp?lessons_num=46001101">
+                            <div class="pic"><img src="images/i6.jpg"></div>
                             <div class="hover">
                                 <b></b>
                                 <div class="txt">
-                                    <img src="images/logo_small.png" alt="">
-                                    <h3>����ͼ��������</h3>
+                                    <img src="images/logo_small.png" alt="电脑图像创制技艺">
+                                    <h3>电脑图像创制技艺</h3>
                                 </div>
                             </div>
                         </a>
                     </li>
                     <li>
-                        <a href="case-info.jsp">
-                            <div class="pic"><img src="images/14429905909518.jpg"></div>
+                        <a href="case-info.jsp?lessons_num=36001601">
+                            <div class="pic"><img src="images/i1.jpg"></div>
                             <div class="hover">
                                 <b></b>
                                 <div class="txt">
-                                    <img src="images/logo_small.png" alt="">
-                                    <h3>�������ֻ�</h3>
+                                    <img src="images/logo_small.png" alt="战争简史与军事高科技概论">
+                                    <h3>战争简史与军事高科技概论</h3>
                                 </div>
                             </div>
                         </a>
                     </li>
                     <li>
-                        <a href="case-info.jsp">
-                            <div class="pic"><img src="images/14429012824914.jpg"></div>
+                        <a href="case-info.jsp?lessons_num=201502">
+                            <div class="pic"><img src="images/i2.jpg"></div>
                             <div class="hover">
                                 <b></b>
                                 <div class="txt">
-                                    <img src="images/logo_small.png" alt="">
-                                    <h3>������������</h3>
+                                    <img src="images/logo_small.png" alt="大学生职业生涯规划">
+                                    <h3>大学生职业生涯规划</h3>
                                 </div>
                             </div>
                         </a>
@@ -264,14 +270,14 @@
                 </ul>
             </div>
             <div class="c"></div>
-            <div class="more-i"><a href="course_research.jsp"></a></div>
+            <div class="more-i"><a href="excellent_course.jsp"></a></div>
         </div>
     </div>
 </div>
 <div class="row3 news-bg">
     <div class="wp">
         <div class="tit-i tit-i-1">
-            <h3>���¿γ�����</h3>
+            <h3>最新课程评价</h3>
             <h5>Courses <span>comments</span></h5>
         </div>
         <%
@@ -287,8 +293,9 @@
                     get_comment comment = new get_comment();
                     comment.setComment(resultSet.getString(1));
                     comment.setLessons_num(resultSet.getString(2));
-                    comment.setUsername(resultSet.getString(3));
-                    comment.setDate(resultSet.getString(4));
+                    comment.setLessons_name(resultSet.getString(3));
+                    comment.setUsername(resultSet.getString(4));
+                    comment.setDate(resultSet.getString(5));
                     sql = "SELECT * FROM lessons WHERE lessons_num=" + comment.getLessons_num();
                     ResultSet resultSet1 = connection.createStatement().executeQuery(sql);
                     while (resultSet1.next()){
@@ -299,7 +306,9 @@
                     e.printStackTrace();
                 }
             }
+            connection.close();
         %>
+        <jsp:useBean id="comment" class="com.tanrui.bean.get_comment"></jsp:useBean>
         <ul class="ul-news-i">
             <li>
                 <div class="pad">
@@ -307,15 +316,44 @@
                         <span>
                             <em><%=comments.get(0).getLessons_name()%></em>
                             --BY <%=comments.get(0).getUsername()%></span>
-                        <h3><a href="case-info.jsp">�κţ�<%=comments.get(0).getLessons_num()%></a></h3>
-                        <p>���ۣ�<%=comments.get(0).getComment().substring(0, 40) + "..."%></p>
-                        <a href="case-info.jsp?_5_313.html" class="more"></a>
+                        <%
+                            out.print("<h3><a href=\"case-info.jsp?lessons_num="+comments.get(0).getLessons_num()+"\">");
+                        %>
+                        课号：<%=comments.get(0).getLessons_num()%></a></h3>
+                        <p>评价：
+                            <%
+                                comment = comments.get(0);
+                                if (comment.getComment().length() < 40){
+                                    out.print(comment.getComment());
+                                }else {
+                                    out.print(comment.getComment().substring(0,40) + "...");
+                                }
+                            %>
+                        </p>
+                        <%
+                            out.print("<a href=\"case-info.jsp?lessons_num=\""+comments.get(0).getLessons_num()+" class=\"more\"></a>");
+                        %>
                     </div>
                     <div class="hover">
-                        <div class="img" style="background: url(images/14568143499060.jpg) 0 0 /100% 100% no-repeat;background: url(images/14568143499060.jpg) 0 0 no-repeat\9;"></div>
+                        <%
+                            String lesson_num = comments.get(0).getLessons_num();
+                            out.print("<div class=\"img\" style=\"background: url(images/"+lesson_num+".jpg) 0 0 /100% 100% no-repeat;background: url(images/"+lesson_num+".jpg) 0 0 no-repeat\\9;\"></div>");
+                        %>
+
                         <div class="pad">
-                            <h3><a href="case-info.jsp">�κţ�<%=comments.get(0).getLessons_num()%></a></h3>
-                            <p>���ۣ�<%=comments.get(0).getComment().substring(0, 40) + "..."%></p>
+                            <%
+                                out.print("<h3><a href=\"case-info.jsp?lessons_num="+comments.get(0).getLessons_num()+"\">");
+                            %>
+                            课号：<%=comments.get(0).getLessons_num()%></a></h3>
+                            <p>评价：
+                                <%
+                                comment = comments.get(0);
+                                if (comment.getComment().length() < 40){
+                                    out.print(comment.getComment());
+                                }else {
+                                    out.print(comment.getComment().substring(0,40) + "...");
+                                }
+                            %></p>
                         </div>
                     </div>
                 </div>
@@ -324,15 +362,39 @@
                 <div class="pad">
                     <div class="txt">
                         <span><em><%=comments.get(1).getLessons_name()%></em>--BY <%=comments.get(1).getUsername()%></span>
-                        <h3><a href="case-info.jsp">�κţ�<%=comments.get(1).getLessons_num()%></a></h3>
-                        <p>���ۣ�<%=comments.get(1).getComment().substring(0, 40) + "..."%></p>
-                        <a href="case-info.jsp?_5_310.html" class="more"></a>
+                        <%
+                            out.print("<h3><a href=\"case-info.jsp?lessons_num="+comments.get(1).getLessons_num()+"\">");
+                        %>课号：<%=comments.get(1).getLessons_num()%></a></h3>
+                        <p>评价：<%
+                            comment = comments.get(1);
+                            if (comment.getComment().length() < 40){
+                                out.print(comment.getComment());
+                            }else {
+                                out.print(comment.getComment().substring(0,40) + "...");
+                            }
+                        %></p>
+                        <%
+                            out.print("<a href=\"case-info.jsp?lessons_num=\""+comments.get(1).getLessons_num()+" class=\"more\"></a>");
+                        %>
                     </div>
                     <div class="hover">
-                        <div class="img" style="background: url(images/14561176714477.png) 0 0 /100% 100% no-repeat;background: url(images/14561176714477.png) 0 0 no-repeat\9;"></div>
+
+                        <%
+                            lesson_num = comments.get(1).getLessons_num();
+                            out.print("<div class=\"img\" style=\"background: url(images/"+lesson_num+".jpg) 0 0 /100% 100% no-repeat;background: url(images/"+lesson_num+".jpg) 0 0 no-repeat\\9;\"></div>");
+                        %>
                         <div class="pad">
-                            <h3><a href="case-info.jsp">�κţ�<%=comments.get(1).getLessons_num()%></a></h3>
-                            <p>���ۣ�<%=comments.get(1).getComment().substring(0, 40) + "..."%></p>
+                            <%
+                                out.print("<h3><a href=\"case-info.jsp?lessons_num="+comments.get(1).getLessons_num()+"\">");
+                            %>课号：<%=comments.get(1).getLessons_num()%></a></h3>
+                            <p>评价：<%
+                                comment = comments.get(1);
+                                if (comment.getComment().length() < 40){
+                                    out.print(comment.getComment());
+                                }else {
+                                    out.print(comment.getComment().substring(0,40) + "...");
+                                }
+                            %></p>
                         </div>
                     </div>
                 </div>
@@ -341,15 +403,38 @@
                 <div class="pad">
                     <div class="txt">
                         <span><em><%=comments.get(2).getLessons_name()%></em>--BY <%=comments.get(2).getUsername()%></span>
-                        <h3><a href="case-info.jsp">�κţ�<%=comments.get(2).getLessons_num()%></a></h3>
-                        <p>���ۣ�<%=comments.get(2).getComment().substring(0, 40) + "..."%></p>
-                        <a href="case-info.jsp" class="more"></a>
+                        <%
+                            out.print("<h3><a href=\"case-info.jsp?lessons_num="+comments.get(2).getLessons_num()+"\">");
+                        %>课号：<%=comments.get(2).getLessons_num()%></a></h3>
+                        <p>评价：<%
+                            comment = comments.get(2);
+                            if (comment.getComment().length() < 40){
+                                out.print(comment.getComment());
+                            }else {
+                                out.print(comment.getComment().substring(0,40) + "...");
+                            }
+                        %></p>
+                        <%
+                            out.print("<a href=\"case-info.jsp?lessons_num=\""+comments.get(2).getLessons_num()+" class=\"more\"></a>");
+                        %>
                     </div>
                     <div class="hover">
-                        <div class="img" style="background: url(images/14555070718366.jpg) 0 0 /100% 100% no-repeat;background: url(images/14555070718366.jpg) 0 0 no-repeat\9;"></div>
+                        <%
+                            lesson_num = comments.get(2).getLessons_num();
+                            out.print("<div class=\"img\" style=\"background: url(images/"+lesson_num+".jpg) 0 0 /100% 100% no-repeat;background: url(images/"+lesson_num+".jpg) 0 0 no-repeat\\9;\"></div>");
+                        %>
                         <div class="pad">
-                            <h3><a href="case-info.jsp">�κţ�<%=comments.get(2).getLessons_num()%></a></h3>
-                            <p>���ۣ�<%=comments.get(2).getComment().substring(0, 40) + "..."%></p>
+                            <%
+                                out.print("<h3><a href=\"case-info.jsp?lessons_num="+comments.get(2).getLessons_num()+"\">");
+                            %>课号：<%=comments.get(2).getLessons_num()%></a></h3>
+                            <p>评价：<%
+                                comment = comments.get(2);
+                                if (comment.getComment().length() < 40){
+                                    out.print(comment.getComment());
+                                }else {
+                                    out.print(comment.getComment().substring(0,40) + "...");
+                                }
+                            %></p>
                         </div>
                     </div>
                 </div>
@@ -358,15 +443,39 @@
                 <div class="pad">
                     <div class="txt">
                         <span><em><%=comments.get(3).getLessons_name()%></em>--BY <%=comments.get(3).getUsername()%></span>
-                        <h3><a href="case-info.jsp">�κţ�<%=comments.get(3).getLessons_num()%></a></h3>
-                        <p>���ۣ�<%=comments.get(3).getComment().substring(0, 40) + "..."%></p>
-                        <a href="case-info.jsp?_5_299.html" class="more"></a>
+                        <%
+                            out.print("<h3><a href=\"case-info.jsp?lessons_num="+comments.get(3).getLessons_num()+"\">");
+                        %>课号：<%=comments.get(3).getLessons_num()%></a></h3>
+                        <p>评价：<%
+                            comment = comments.get(3);
+                            if (comment.getComment().length() < 40){
+                                out.print(comment.getComment());
+                            }else {
+                                out.print(comment.getComment().substring(0,40) + "...");
+                            }
+                        %></p>
+                        <%
+                            out.print("<a href=\"case-info.jsp?lessons_num=\""+comments.get(3).getLessons_num()+" class=\"more\"></a>");
+                        %>
                     </div>
                     <div class="hover">
-                        <div class="img" style="background: url(images/14537972384811.jpg) 0 0 /100% 100% no-repeat;background: url(images/14537972384811.jpg) 0 0 no-repeat\9;"></div>
+
+                        <%
+                            lesson_num = comments.get(3).getLessons_num();
+                            out.print("<div class=\"img\" style=\"background: url(images/"+lesson_num+".jpg) 0 0 /100% 100% no-repeat;background: url(images/"+lesson_num+".jpg) 0 0 no-repeat\\9;\"></div>");
+                        %>
                         <div class="pad">
-                            <h3><a href="case-info.jsp">�κţ�<%=comments.get(3).getLessons_num()%></a></h3>
-                            <p>���ۣ�<%=comments.get(3).getComment().substring(0, 40) + "..."%></p>
+                            <%
+                                out.print("<h3><a href=\"case-info.jsp?lessons_num="+comments.get(3).getLessons_num()+"\">");
+                            %>课号：<%=comments.get(3).getLessons_num()%></a></h3>
+                            <p>评价：<%
+                                comment = comments.get(3);
+                                if (comment.getComment().length() < 40){
+                                    out.print(comment.getComment());
+                                }else {
+                                    out.print(comment.getComment().substring(0,40) + "...");
+                                }
+                            %></p>
                         </div>
                     </div>
                 </div>
@@ -375,7 +484,7 @@
         </ul>
         <div class="c"></div>
         <div class="news-more">
-            <a href="course_comments">load more</a>
+            <a href="course_comments.jsp?page=1">load more</a>
         </div>
     </div>
 </div>
@@ -387,11 +496,11 @@
     <div class="wp">
         <div class="fd-top">
             <dl>
-                <dt>��ϵ����</dt>
+                <dt>联系我们</dt>
                 <dd class="pr">
                     <p><a href="" class="weixin"></a><a href="https://weibo.com/guitoubing" class="sina"></a><span class="weixin-pic"><img src="images/ewm.png" alt=""></span></p>
                     <p><b class="tel">189-3636-1545</b></p>
-                    <h5>��ϵ�绰</h5>
+                    <h5>联系电话</h5>
                 </dd>
             </dl>
         </div>
@@ -399,7 +508,7 @@
     <div class="fd-copy">
         <div class="wp">
             <p>
-                <span>ͬ�ô�ѧ����ѧԺ̸�� ͬ�ô�ѧ����ѧԺ�³� ͬ�ô�ѧ����ѧԺ���� Copyright&copy; 2018 </span><a href=""></a> <a href=""></a>
+                <span>同济大学软件学院谈瑞 同济大学软件学院陈超 同济大学汽车学院李扬 Copyright&copy; 2018 </span><a href=""></a> <a href=""></a>
             </p>
         </div>
     </div>

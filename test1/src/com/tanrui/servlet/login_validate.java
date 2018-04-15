@@ -11,10 +11,15 @@ public class login_validate extends javax.servlet.http.HttpServlet {
         String username = request.getParameter("Username");
         String password = request.getParameter("Password");
         try {
+            // 反射引用驱动器
             Class.forName("com.mysql.jdbc.Driver");
+            // 获取数据库连接
             Connection connection = DriverManager.getConnection("jdbc:mysql://i5apdbuy.457.dnstoo.com:4017/tanrui","tanrui_f","tanrui106");
+            // 查询语句
             String sql = "select * from users";
+            // 创建查询
             Statement statement = connection.createStatement();
+            // 获取结果
             ResultSet resultSet = statement.executeQuery(sql);
             PrintWriter printWriter = response.getWriter();
             Boolean existed = false;
@@ -38,6 +43,7 @@ public class login_validate extends javax.servlet.http.HttpServlet {
                 response.sendRedirect("login_index.jsp");
             }
             printWriter.close();
+            connection.close();
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }

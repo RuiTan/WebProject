@@ -1,10 +1,12 @@
-<%@ page language="java" import="java.util.*" pageEncoding="GB2312" %>
-<%@ page import="javax.swing.*" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.tanrui.bean.get_lessons" %>
+<%@ page pageEncoding="utf-8" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title></title>
+    <title>è¯¾ç¨‹æœç´¢</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta content="telephone=no" name="format-detection" />
@@ -23,11 +25,11 @@
         input, button { border: none; outline: none; }
         input { width: 100%; height: 42px; padding-left: 13px; }
         button { height: 42px; width: 42px; cursor: pointer; position: absolute; }
-        .bar3 {background: #F9F0DA;}
+        .bar3 {background: #ffffff;}
         .bar3 form {background: #A3D0C3;}
         .bar3 input, .bar3 button { background: transparent; }
         .bar3 button { top: 0; right: 0; }
-        .bar3 button:before { content: "\f002"; font-family: FontAwesome; font-size: 16px; color: #F9F0DA; }
+        .bar3 button:before { content: "\f002"; font-family: FontAwesome; font-size: 16px; color: #fffaf0; }
     </style>
 </head>
 <body>
@@ -44,268 +46,151 @@
 
 <div id="hd">
     <div class="wp">
-        <div class="logo"><a href="index1"><img src="images/logo.png" alt=""></a></div>
+        <div class="logo"><a href="index.jsp"><img src="images/logo.png" alt=""></a></div>
         <div id="nav">
             <ul>
-                <li><a href="index.jsp" >Ê×Ò³</a></li>
-                <li><a href="course_service.jsp" >¿Î³Ì·şÎñ</a></li>
-                <li><a href="excellent_course.jsp" >¾«Æ·¿Î³Ì</a></li>
-                <li><a href="course_research.jsp"   style="color:#e4392a; border-bottom:3px solid #e4392a;">¿Î³ÌËÑË÷</a></li>
-                <li><a href="course_comments.jsp" >¿Î³ÌÆÀ¼Û</a></li>
-                <li><a href="contact.jsp">ÍøÕ¾ÁôÑÔ</a></li>
+                <li><a href="index.jsp" >é¦–é¡µ</a></li>
+                <li><a href="course_service.jsp" >è¯¾ç¨‹æœåŠ¡</a></li>
+                <li><a href="excellent_course.jsp" >ç²¾å“è¯¾ç¨‹</a></li>
+                <li><a href="course_research.jsp?page=1"   style="color:#e4392a; border-bottom:3px solid #e4392a;">è¯¾ç¨‹æœç´¢</a></li>
+                <li><a href="course_comments.jsp" >è¯¾ç¨‹è¯„ä»·</a></li>
+                <li><a href="contact.jsp">ç½‘ç«™ç•™è¨€</a></li>
 
             </ul>
-            »¶Ó­ <a href="#"><%=session1.getAttribute("username")%></a> À´µ½Í¬¼Ã´óÑ§Ñ¡ĞŞ°Ù¿ÆÍø
+            <div style="text-align: center; align-content: center; padding-top: 20px;">
+                æ¬¢è¿<a href="#">
+                <%=session1.getAttribute("username")%>
+            </a>æ¥åˆ°åŒæµå¤§å­¦é€‰ä¿®è¯¾ç™¾ç§‘äº’åŠ¨å¹³å°
+                <a href="ql">
+                    <p style="text-align: end">é€€å‡ºç™»å½•</p>
+                </a>
+            </div>
         </div>
     </div>
 </div>
 <div class="c"></div>
 <div id="m-hd">
-    <a href="index1" class="m-logo"><img src="images/logo.png" alt=""></a>
+    <a href="index.jsp" class="m-logo"><img src="images/logo.png" alt=""></a>
     <div class="m-trigger"></div>
     <ul class="m-nav">
-        <li><a href="index.jsp">Ê×Ò³ </a></li>
-        <li><a href="course_service.jsp" >¿Î³Ì·şÎñ</a></li>
-        <li><a href="excellent_course.jsp" >¾«Æ·¿Î³Ì</a></li>
-        <li><a href="course_research.jsp"  class="v1">¿Î³ÌËÑË÷</a></li>
-        <li><a href="course_comments.jsp" >¿Î³ÌÆÀ¼Û</a></li>
-        <li><a href="contact.jsp">ÍøÕ¾ÁôÑÔ</a></li>
+        <li><a href="index.jsp">é¦–é¡µ </a></li>
+        <li><a href="course_service.jsp" >è¯¾ç¨‹æœåŠ¡</a></li>
+        <li><a href="excellent_course.jsp" >ç²¾å“è¯¾ç¨‹</a></li>
+        <li><a href="course_research.jsp?page=1"  class="v1">è¯¾ç¨‹æœç´¢</a></li>
+        <li><a href="course_comments.jsp" >è¯¾ç¨‹è¯„ä»·</a></li>
+        <li><a href="contact.jsp">ç½‘ç«™ç•™è¨€</a></li>
     </ul>
 </div>
 <div class="c"></div>	<div id="bd">
-<div id="ban-in" style="background-image:url(images/14415956337556.jpg)">
+<div id="ban-in" style="background-image:url(images/course_research.jpg)">
     <div class="ban-bg"></div>
 </div>
 <div class="wp">
 <div class="tit-i">
-    <h3>¿Î³ÌËÑË÷</h3>
+    <h3>è¯¾ç¨‹æœç´¢</h3>
     <h5><span>Research</span> OF COURSE</h5>
 </div>
 
-    <div id="container">
+    <%--<div id="container">--%>
         <div class="search bar3">
-            <form>
-                <input type="text" placeholder="ÇëÊäÈëÄúÒªËÑË÷µÄÄÚÈİ..." id="search-text" name="search-text">
-                <button class="fa fa-search" type="submit" id="submit">
-                </button>
+            <form action="search" method="post">
+                <input type="text" placeholder="è¯·è¾“å…¥è¯¾ç¨‹åå…³é”®è¯..." id="search-text" name="search-text">
+                <button class="fa fa-search" type="submit" id="submit"></button>
             </form>
         </div>
-    </div>
+    <%--</div>--%>
 
     <div class="c"></div>
 <ul class="ul-case">
-    <li>
-        <div class="block">
-            <div class="pic"><img src="images/14446394304458.jpg" alt="²ÎÏÉÔ´²ÎÒµ¹É·İÓĞÏŞ¹«Ë¾"></div>
-            <div class="txt">
-                <a href="case-info.jsp" style="width:100%;height:100%;display:block;">
-                    <b></b>
-                    <div class="pad">
-                        <h5>HTML5</h5>
-                        <em></em>
-                        <h3>É­ÁÖ¹«Ô°ÍøÕ¾</h3>
-                        <span class="more">°¸ÀıÏêÇé</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="block">
-            <div class="pic"><img src="images/14446391053281.jpg" alt="¹ã¶«»ªÃÀÁ¢¼ÒÍ¶×Ê¿Ø¹ÉÓĞÏŞ¹«Ë¾"></div>
-            <div class="txt">
-                <a href="case-info.jsp" style="width:100%;height:100%;display:block;">
-                    <b></b>
-                    <div class="pad">
-                        <h5>ÒÆ¶¯Î¢Õ¾</h5>
-                        <em></em>
-                        <h3>»ªÃÀÁ¢¼Ò¼¯ÍÅÕ¾</h3>
-                        <span class="more">°¸ÀıÏêÇé</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="block">
-            <div class="pic"><img src="images/14429937588106.jpg" alt="LMPÆ·ÅÆÕ¾"></div>
-            <div class="txt">
-                <a href="case-info.jsp" style="width:100%;height:100%;display:block;">
-                    <b></b>
-                    <div class="pad">
-                        <h5>HTML5</h5>
-                        <em></em>
-                        <h3>LMPÆ·ÅÆÕ¾¹ÙÍø</h3>
-                        <span class="more">°¸ÀıÏêÇé</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="block">
-            <div class="pic"><img src="images/14429898301265.jpg" alt="ÖĞºÕÖÃµØÍ¶×Ê¿Ø¹ÉÓĞÏŞ¹«Ë¾"></div>
-            <div class="txt">
-                <a href="case-info.jsp" style="width:100%;height:100%;display:block;">
-                    <b></b>
-                    <div class="pad">
-                        <h5>¼¯ÍÅ¹«Ë¾</h5>
-                        <em></em>
-                        <h3>ÖĞºÕ¼¯ÍÅÄÚÍø</h3>
-                        <span class="more">°¸ÀıÏêÇé</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="block">
-            <div class="pic"><img src="images/14429888454624.jpg" alt="±±¾©ÖÂÔ¶Ğ­Í¬Èí¼şÓĞÏŞ¹«Ë¾"></div>
-            <div class="txt">
-                <a href="case-info.jsp" style="width:100%;height:100%;display:block;">
-                    <b></b>
-                    <div class="pad">
-                        <h5>¿Æ¼¼µç×Ó</h5>
-                        <em></em>
-                        <h3>ÖÂÔ¶Èí¼ş</h3>
-                        <span class="more">°¸ÀıÏêÇé</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="block">
-            <div class="pic"><img src="images/14425590613750.jpg" alt="±±¾©Á¬ÑóĞ¬ÒµÓĞÏŞ¹«Ë¾"></div>
-            <div class="txt">
-                <a href="case-info.jsp" style="width:100%;height:100%;display:block;">
-                    <b></b>
-                    <div class="pad">
-                        <h5>Æ½Ì¨µçÉÌ</h5>
-                        <em></em>
-                        <h3>Á¬ÑóĞ¬ÒµÍøÕ¾</h3>
-                        <span class="more">°¸ÀıÏêÇé</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="block">
-            <div class="pic"><img src="images/14423045107241.jpg" alt="ÀñÔÃÀû´ï£¨±±¾©£©ÉÌÃ³ÓĞÏŞ¹«Ë¾"></div>
-            <div class="txt">
-                <a href="case-info.jsp" style="width:100%;height:100%;display:block;">
-                    <b></b>
-                    <div class="pad">
-                        <h5>¾Æµê²ÍÒû</h5>
-                        <em></em>
-                        <h3>ÀñÔÃÀû´ï</h3>
-                        <span class="more">°¸ÀıÏêÇé</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="block">
-            <div class="pic"><img src="images/14423036593132.jpg" alt="¿¢ÌÚÓ°Òµ£¨±±¾©£©ÓĞÏŞ¹«Ë¾"></div>
-            <div class="txt">
-                <a href="case-info.jsp" style="width:100%;height:100%;display:block;">
-                    <b></b>
-                    <div class="pad">
-                        <h5>HTML5</h5>
-                        <em></em>
-                        <h3>¿¢ÌÚÓ°ÒµÍøÕ¾</h3>
-                        <span class="more">°¸ÀıÏêÇé</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="block">
-            <div class="pic"><img src="images/14422959085097.jpg" alt="¹ú¼ÒĞÅÏ¢¼¼Êõ°²È«ÑĞ¾¿ÖĞĞÄ"></div>
-            <div class="txt">
-                <a href="case-info.jsp" style="width:100%;height:100%;display:block;">
-                    <b></b>
-                    <div class="pad">
-                        <h5>Õş¸®»ú¹Ø</h5>
-                        <em></em>
-                        <h3>¹ú¼ÒĞÅÏ¢°²È«ÖĞĞÄÍøÕ¾</h3>
-                        <span class="more">°¸ÀıÏêÇé</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="block">
-            <div class="pic"><img src="images/14503165901362.jpg" alt="±±¾©¿Æµçº½Óî¿Õ¼ä¼¼ÊõÓĞÏŞ¹«Ë¾"></div>
-            <div class="txt">
-                <a href="case-info.jsp" style="width:100%;height:100%;display:block;">
-                    <b></b>
-                    <div class="pad">
-                        <h5>¿Æ¼¼µç×Ó</h5>
-                        <em></em>
-                        <h3>¿Æµçº½Óî¹ÙÍø</h3>
-                        <span class="more">°¸ÀıÏêÇé</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="block">
-            <div class="pic"><img src="images/14502575675982.jpg" alt="¹ú¼ÒÍ³¼Æ¾ÖÍøÕ¾½¨Éè"></div>
-            <div class="txt">
-                <a href="case-info.jsp" style="width:100%;height:100%;display:block;">
-                    <b></b>
-                    <div class="pad">
-                        <h5>Õş¸®»ú¹Ø</h5>
-                        <em></em>
-                        <h3>¹ú¼ÒÍ³¼Æ¾ÖÄÚ²¿ĞÅÏ¢Íø</h3>
-                        <span class="more">°¸ÀıÏêÇé</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="block">
-            <div class="pic"><img src="images/14502572864534.jpg" alt="±±¾©¹²ÏíĞÇ¹âÎÄ»¯´«²¥ÓĞÏŞ¹«Ë¾"></div>
-            <div class="txt">
-                <a href="case-info.jsp" style="width:100%;height:100%;display:block;">
-                    <b></b>
-                    <div class="pad">
-                        <h5>Ó°ÊÓ´«Ã½</h5>
-                        <em></em>
-                        <h3>¹²ÏíĞÇ¹â¹ÙÍø</h3>
-                        <span class="more">°¸ÀıÏêÇé</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </li>
+        <%
+            HttpSession session2 = request.getSession();
+            Boolean exist = (Boolean) session2.getAttribute("exist");
+            ArrayList<get_lessons> lessons_list = (ArrayList<get_lessons>) session2.getAttribute("lessons_list");
+            if (exist != null && lessons_list != null){
+                if (lessons_list.isEmpty()){
+                    out.print("<h3>æœªæœç´¢åˆ°ç»“æœ...</h3>");
+                }
+                for (get_lessons lesson : lessons_list) {
+                    String href = "case-info.jsp?lessons_num=" + lesson.getLessons_num();
+                        out.print("<li>\n" +
+                                "        <div class=\"block\">\n" +
+                                "            <div class=\"pic\"><img src=\"images/" + lesson.getLessons_num() + ".jpg\" alt=\"" + lesson.getLessons_name() + "\"></div>\n" +
+                                "            <div class=\"txt\">\n" +
+                                "                <a href=\""+ href +"\" style=\"width:100%;height:100%;display:block;\">\n" +
+                                "                    <b></b>\n" +
+                                "                    <div class=\"pad\">\n" +
+                                "                        <h5>"+ lesson.getLessons_num() +"</h5>\n" +
+                                "                        <em></em>\n" +
+                                "                        <h3>"+ lesson.getLessons_name() +"</h3>\n" +
+                                "                        <span class=\"more\">è¯¾ç¨‹è¯¦æƒ…</span>\n" +
+                                "                    </div>\n" +
+                                "                </a>\n" +
+                                "            </div>\n" +
+                                "        </div>\n" +
+                                "    </li>");
+                    }
+                    request.getSession().removeAttribute("lessons_list");
+                    request.getSession().removeAttribute("exist");
+            }
+            else {
+                int page_num = Integer.parseInt(request.getParameter("page"));
+                ArrayList<get_lessons> lessons_list_default = (ArrayList<get_lessons>) request.getSession().getAttribute("lessons_list_default");
+                if (lessons_list_default == null){
+                    request.getRequestDispatcher("lp1").forward(request, response);
+                }else {
+                    for (int i = 0; i < 21; i++){
+                        get_lessons lesson = lessons_list_default.get(i + (page_num - 1) * 21);
+                        String href = "case-info.jsp?lessons_num=" + lesson.getLessons_num();
+                        out.print("<li>\n" +
+                                "        <div class=\"block\">\n" +
+                                "            <div class=\"pic\"><img src=\"images/" + lesson.getLessons_num() + ".jpg\" alt=\"" + lesson.getLessons_name() + "\"></div>\n" +
+                                "            <div class=\"txt\">\n" +
+                                "                <a href=\""+ href +"\" style=\"width:100%;height:100%;display:block;\">\n" +
+                                "                    <b></b>\n" +
+                                "                    <div class=\"pad\">\n" +
+                                "                        <h5>"+ lesson.getLessons_num() +"</h5>\n" +
+                                "                        <em></em>\n" +
+                                "                        <h3>"+ lesson.getLessons_name() +"</h3>\n" +
+                                "                        <span class=\"more\">è¯¾ç¨‹è¯¦æƒ…</span>\n" +
+                                "                    </div>\n" +
+                                "                </a>\n" +
+                                "            </div>\n" +
+                                "        </div>\n" +
+                                "    </li>");
+                    }
+
+                }
+
+            }
+
+        %>
+
+
 </ul>
-<div class="c"></div>
-<div class="pages">
+</div>
+    <div class="c"></div>
+    <div class="pages">
+        <%
+            if (exist == null){
+                int page_num = Integer.parseInt(request.getParameter("page"));
+                out.print("<a href=\"pp?page=" + page_num + "\" class='a-prev'><</a> <a class='a-next' href=\"np?page="+ page_num +"\">></a>");
+            }
+        %>
 
-    <a href='' class='a-prev'><</a> <a class='page-on'>1</a> <a href="/case4_0-2">2</a> <a href="/case4_0-3">3</a> <a href="/case4_0-4">4</a> <a href="/case4_0-5">5</a> <a class='a-next' href="/case4_0-2">></a>
-</div>
-</div>
-</div>
+    </div>
 
+</div>
 <div class="c"></div>
 <div id="fd" class="index-fd pr">
     <div class="map-bg3"></div>
     <div class="wp">
         <div class="fd-top">
             <dl>
-                <dt>ÁªÏµÎÒÃÇ</dt>
+                <dt>è”ç³»æˆ‘ä»¬</dt>
                 <dd class="pr">
                     <p><a href="" class="weixin"></a><a href="https://weibo.com/guitoubing" class="sina"></a><span class="weixin-pic"><img src="images/ewm.png" alt=""></span></p>
                     <p><b class="tel">189-3636-1545</b></p>
-                    <h5>ÁªÏµµç»°</h5>
+                    <h5>è”ç³»ç”µè¯</h5>
                 </dd>
             </dl>
         </div>
@@ -313,7 +198,7 @@
     <div class="fd-copy">
         <div class="wp">
             <p>
-                <span>Í¬¼Ã´óÑ§Èí¼şÑ§ÔºÌ¸Èğ Í¬¼Ã´óÑ§Èí¼şÑ§Ôº³Â³¬ Í¬¼Ã´óÑ§Æû³µÑ§ÔºÀîÑï Copyright&copy; 2018 </span><a href=""></a> <a href=""></a>
+                <span>åŒæµå¤§å­¦è½¯ä»¶å­¦é™¢è°ˆç‘ åŒæµå¤§å­¦è½¯ä»¶å­¦é™¢é™ˆè¶… åŒæµå¤§å­¦æ±½è½¦å­¦é™¢ææ‰¬ Copyright&copy; 2018 </span><a href=""></a> <a href=""></a>
             </p>
         </div>
     </div>
